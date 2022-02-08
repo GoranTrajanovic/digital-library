@@ -1,174 +1,209 @@
 /* Container/Primary Container */
 @mixin color-container-primary {
+	color: #bcd8ff;
 	background: #bcd8ff;
 }
 
 /*Full Color/Primary */
-@mixin color-full-color-primary {
+@mixin color-full-primary {
+	color: #054499;
 	background: #054499;
 }
 
 /* Full Color/Text */
-@mixin color-full-color-text {
+@mixin color-full-text {
+	color: #736e77;
 	background: #736e77;
 }
 
 /* Full Color/Secondary */
-@mixin color-full-color-secondary {
+@mixin color-full-secondary {
+	color: #ffb730;
 	background: #ffb730;
 }
 
 /*Full Color/Primary Middle Lightned */
 @mixin color-full-primary-middle-lightened {
+	color: #1f70dd;
 	background: #1f70dd;
 }
 
 /*Full Color/Secondary Lighter */
 @mixin color-full-secondary-lighter {
+	color: #ffc75e;
 	background: #ffc75e;
 }
 
 /*Full Color/Card Background */
 @mixin color-full-card-background {
+	color: #ffffff;
 	background: #ffffff;
 }
 
 /*Full Color/Secondary Darker */
 @mixin color-full-secondary-darker {
+	color: #dd9a1e;
 	background: #dd9a1e;
 }
 
 /*Full Color/Dark Background */
 @mixin color-full-dark-background {
+	color: #424242;
 	background: #424242;
 }
 
 /*Full Color/Tertiary */
-@mixin color-full-color-tertiary {
+@mixin color-full-tertiary {
+	color: #13ba92;
 	background: #13ba92;
 }
 
 /*Full Color/Titles, #111 */
 @mixin color-full-titles {
+	color: #111111;
 	background: #111111;
 }
 
 /*Full Color/Error */
 @mixin color-full-error {
+	color: #ff4242;
 	background: #ff4242;
 }
 
 /* Miscellaneous/Background */
 @mixin color-misc-background {
+	color: #fffdf8;
 	background: #fffdf8;
 }
 
 /* Miscellaneous/Surface Variant */
 @mixin color-misc-surface-variant {
+	color: #e7e0ec;
 	background: #e7e0ec;
 }
 
 /* Miscellaneous/Surface */
 @mixin color-misc-surface {
+	color: #fffdf5;
 	background: #fffdf5;
 }
 
 /* Miscellaneous/Outline */
 @mixin color-misc-outline {
+	color: #79747e;
 	background: #79747e;
 }
 
 /* Miscellaneous/Outline Card */
 @mixin color-misc-outline-card {
+	color: rgba(187, 187, 187, 0.5);
 	background: rgba(187, 187, 187, 0.5);
 }
 
 /* Miscellaneous/Surface Variant 10% Darker */
 @mixin color-misc-surface-variant-10perc-lighter {
+	color: #cec0d8;
 	background: #cec0d8;
 }
 
 /* Miscellaneous/Surface Variant 5% Lighter */
 @mixin color-misc-surface-variant-5perc-lighter {
+	color: #f3eff5;
 	background: #f3eff5;
 }
 
 /* On/On Primary */
 @mixin color-on-primary {
+	color: #ffffff;
 	background: #ffffff;
 }
 
 /* On/On Secondary */
 @mixin color-on-secondary {
+	color: #111111;
 	background: #111111;
 }
 
 /* On/On Tertiary */
 @mixin color-on-tertiary {
+	color: #ffffff;
 	background: #ffffff;
 }
 
 /* On/On Error */
 @mixin color-on-error {
+	color: #ffffff;
 	background: #ffffff;
 }
 
 /* On/On Primary on */
 @mixin color-on-primary-container {
+	color: #002455;
 	background: #002455;
 }
 
 /* On/On Secondary on */
 @mixin color-on-secondary-container {
+	color: #553700;
 	background: #553700;
 }
 
 /* On/On Tertiary on */
 @mixin color-on-tertiary-container {
+	color: #00684f;
 	background: #00684f;
 }
 
 /* On/On Error on */
 @mixin color-on-error-container {
+	color: #770707;
 	background: #770707;
 }
 
 /* On/On Background */
 @mixin color-on-background {
+	color: #000b1a;
 	background: #000b1a;
 }
 
 /* On/On Surface */
 @mixin color-on-surface {
+	color: #1b2028;
 	background: #1b2028;
 }
 
 /* On/On Surface Variant */
 @mixin color-on-surface-variant {
+	color: #49454e;
 	background: #49454e;
 }
 
 /* On/On Dark Background */
 @mixin color-on-dark-background {
+	color: #ffffff;
 	background: #ffffff;
 }
 
 /* Gradient/Pink-Orange */
 @mixin color-gradient-pink-orange {
+	color: linear-gradient(74.56deg, #ff66cc -92.33%, #ffb730 73.11%);
 	background: linear-gradient(74.56deg, #ff66cc -92.33%, #ffb730 73.11%);
 }
 
 /* Gradient/Pink-Orange Emphasis */
 @mixin color-gradient-pink-orange-emphasis {
+	color: linear-gradient(188.7deg, #ff33bb -181.62%, #ff9a1a 142.86%);
 	background: linear-gradient(188.7deg, #ff33bb -181.62%, #ff9a1a 142.86%);
 }
 
 /* Button/Primary Hovered */
 @mixin color-button-primary-hovered {
+	color: #3189ff;
 	background: #3189ff;
 }
 
 /* Overlay/Dark */
 @mixin color-overlay-dark {
+	color: rgba(0, 0, 0, 0.9);
 	background: rgba(0, 0, 0, 0.9);
 }

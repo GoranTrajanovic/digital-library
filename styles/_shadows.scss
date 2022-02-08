@@ -1,0 +1,74 @@
+/* 8dp/8dp Umbra */
+@mixin shadow-8dp-umbra {
+	box-shadow: 0px 8px 10px 1px rgba(0, 0, 0, 0.14);
+}
+
+/* 12dp/16dp/16dp Umbra */
+@mixin shadow-16dp-umbra {
+	box-shadow: 0px 16px 24px 2px rgba(0, 0, 0, 0.14);
+}
+
+/* Desktop/Card */
+@mixin shadow-desktop-card {
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Title/On Colorful Background */
+@mixin shadow-title-on-colorful-background {
+	box-shadow: 0px 6px 10px 5px rgba(0, 0, 0, 0.85);
+}
+
+/* Miscellaneous/Text Link */
+@mixin shadow-misc-text-link {
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* 12dp/12dp Umbra */
+@mixin shadow-12dp-umbra {
+	box-shadow: 0px 12px 17px 2px rgba(0, 0, 0, 0.14);
+}
+
+/* 24dp/24dp Umbra */
+@mixin shadow-24dp-umbra {
+	box-shadow: 0px 24px 38px 3px rgba(0, 0, 0, 0.14);
+}
+
+/* 8dp/8dp Penumbra */
+@mixin shadow-8dp-penumbra {
+	box-shadow: 0px 3px 14px 3px rgba(0, 0, 0, 0.12);
+}
+
+/* 12dp/16dp/16dp Penumbra */
+@mixin shadow-16dp-penumbra {
+	box-shadow: 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+}
+
+/* 12dp/12dp Penumbra */
+@mixin shadow-12dp-penumbra {
+	box-shadow: 0px 5px 22px 4px rgba(0, 0, 0, 0.12);
+}
+
+/* 24dp/24dp Penumbra */
+@mixin shadow-24dp-penumbra {
+	box-shadow: 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* 8dp/8dp Ambient */
+@mixin shadow-8dp-ambient {
+	box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 12dp/16dp/16dp Ambient */
+@mixin shadow-16dp-ambient {
+	box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 12dp/12dp Ambient */
+@mixin shadow-12dp-ambient {
+	box-shadow: 0px 7px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 24dp/24dp Ambient */
+@mixin shadow-24dp-ambient {
+	box-shadow: 0px 11px 15px rgba(0, 0, 0, 0.2);
+}

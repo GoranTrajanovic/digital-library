@@ -1,0 +1,49 @@
+//Proposed
+
+// min 1440 large desktop
+// min 1240 desktop
+// min 905 tablet landscape
+// min 600 tablet
+// max 599 mobile
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// most popular desktop: 1920 (21%), 1366 (20%)
+// most popular tablet: 768 (40%)
+// most popular mobile: 360 (9%), 414 (7%)
+// as of Feb 22, 2021:
+//      1920×1080 (8.89%)
+//      1366×768 (8.44%)
+//      360×640 (7.28%)
+//      414×896 (4.58%)
+//      1536×864 (3.88%)
+//      375×667 (3.75%)
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ref: https://www.hobo-web.co.uk/best-screen-size/
+// ref: https://material.io/design/layout/responsive-layout-grid.html#breakpoints
+// ref: https://www.w3schools.com/css/tryit.asp?filename=tryresponsive_mediaquery_breakpoints
+// ref: https://www.google.com/search?q=most+popular+device+widths&client=firefox-b-d&sxsrf=APq-WBuVBIO6KMXJYe-KnuW9JrZWkCTodg%3A1644312284431&ei=3DYCYo7OGcKdkgXRg7OIDA&ved=0ahUKEwiOrPPM5O_1AhXCjqQKHdHBDMEQ4dUDCA0&uact=5&oq=most+popular+device+widths&gs_lcp=Cgdnd3Mtd2l6EAMyBggAEBYQHjIGCAAQFhAeOgcIIxCwAxAnOgcIABBHELADOgQIIxAnOgUIABCABDoLCC4QgAQQxwEQowI6CwguEIAEEMcBENEDOgUILhCABDoECAAQQzoFCAAQywE6CwguEIAEEMcBEK8BOgsILhDHARCvARDLAToKCAAQgAQQhwIQFDoICAAQyQMQywE6BQgAEJECOggIABCABBDJAzoICCEQFhAdEB5KBAhBGABKBAhGGABQvQZY4xtg0RxoAXACeACAAbwBiAGbGJIBBDAuMjWYAQCgAQHIAQnAAQE&sclient=gws-wiz
+
+@mixin desktop-large() 
+  @media (min-width: 1440px) 
+    @content
+
+@mixin test() 
+  @media (min-width: 1300px) 
+    @content
+
+@mixin desktop() 
+  @media (max-width: 1439px) and (min-width: 1240px) 
+    @content
+
+// @mixin tablet-landscape() 
+//   @media (max-width: 1239px) and (min-width: 905px) 
+//     @content
+
+@mixin tablet() 
+  @media (max-width: 1239px) and (min-width: 600px) 
+    @content
+
+@mixin mobile() 
+  @media (max-width: 599px) 
+    @content
+

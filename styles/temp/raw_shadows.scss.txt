@@ -1,0 +1,164 @@
+/* Rectangle 14 */
+
+position: absolute;
+width: 150px;
+height: 150px;
+
+background: #7f9fde;
+/* 8dp/8dp Umbra */
+
+box-shadow: 0px 8px 10px 1px rgba(0, 0, 0, 0.14);
+
+/* Rectangle 20 */
+
+position: absolute;
+width: 150px;
+height: 150px;
+
+background: #7f9fde;
+/* 12dp/16dp/16dp Umbra */
+
+box-shadow: 0px 16px 24px 2px rgba(0, 0, 0, 0.14);
+
+/* Rectangle 26 */
+
+position: absolute;
+width: 150px;
+height: 150px;
+
+background: #7f9fde;
+/* Desktop/Card */
+
+box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+
+/* Rectangle 27 */
+
+position: absolute;
+width: 150px;
+height: 150px;
+
+background: #7f9fde;
+/* Title/On Colorful Background */
+
+box-shadow: 0px 6px 10px 5px rgba(0, 0, 0, 0.85);
+
+/* Rectangle 28 */
+
+position: absolute;
+width: 150px;
+height: 150px;
+
+background: #7f9fde;
+/* Miscellaneous/Text Link */
+
+box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.9);
+
+/* Rectangle 17 */
+
+position: absolute;
+width: 150px;
+height: 150px;
+
+background: #7f9fde;
+/* 12dp/12dp Umbra */
+
+box-shadow: 0px 12px 17px 2px rgba(0, 0, 0, 0.14);
+
+/* Rectangle 21 */
+
+position: absolute;
+width: 150px;
+height: 150px;
+
+background: #7f9fde;
+/* 24dp/24dp Umbra */
+
+box-shadow: 0px 24px 38px 3px rgba(0, 0, 0, 0.14);
+
+/* Rectangle 15 */
+
+position: absolute;
+width: 150px;
+height: 150px;
+
+background: #7f9fde;
+/* 8dp/8dp Penumbra */
+
+box-shadow: 0px 3px 14px 3px rgba(0, 0, 0, 0.12);
+
+/* Rectangle 22 */
+
+position: absolute;
+width: 150px;
+height: 150px;
+
+background: #7f9fde;
+/* 12dp/16dp/16dp Penumbra */
+
+box-shadow: 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+
+/* Rectangle 18 */
+
+position: absolute;
+width: 150px;
+height: 150px;
+
+background: #7f9fde;
+/* 12dp/12dp Penumbra */
+
+box-shadow: 0px 5px 22px 4px rgba(0, 0, 0, 0.12);
+
+/* Rectangle 23 */
+
+position: absolute;
+width: 150px;
+height: 150px;
+
+background: #7f9fde;
+/* 24dp/24dp Penumbra */
+
+box-shadow: 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+
+/* Rectangle 16 */
+
+position: absolute;
+width: 150px;
+height: 150px;
+
+background: #7f9fde;
+/* 8dp/8dp Ambient */
+
+box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+
+/* Rectangle 24 */
+
+position: absolute;
+width: 150px;
+height: 150px;
+
+background: #7f9fde;
+/* 12dp/16dp/16dp Ambient */
+
+box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
+
+/* Rectangle 19 */
+
+position: absolute;
+width: 150px;
+height: 150px;
+
+background: #7f9fde;
+/* 12dp/12dp Ambient */
+
+box-shadow: 0px 7px 8px rgba(0, 0, 0, 0.2);
+
+/* Rectangle 25 */
+
+position: absolute;
+width: 150px;
+height: 150px;
+
+background: #7f9fde;
+/* 24dp/24dp Ambient */
+
+box-shadow: 0px 11px 15px rgba(0, 0, 0, 0.2);
