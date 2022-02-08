@@ -1,0 +1,29 @@
+.button, %button
+    @include font-button-desktop-regular
+    @include rounded-corners-extreme
+    background: $bg-color-surface-variant
+    border: 2px solid $color-outline
+    padding: 12px 16px
+    min-width: 60px
+    height: 44px
+
+    &:hover
+        background: $bg-color-surface-10perc-darker
+    &:active
+        background: $bg-color-surface-5perc-lighter
+        
+    @include tablet-mobile()
+        @include font-button-mobile-regular
+        height: 41px
+
+.button-selected
+    @extend %button
+    background: $color-primary-lightened
+    border: 2px solid $color-on-primary
+    outline: 2px solid $color-primary-lightened
+    color: $color-on-primary
+    position: relative
+
+    &:hover
+        cursor: default
+        background: $color-primary-lightened

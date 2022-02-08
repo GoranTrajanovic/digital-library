@@ -1,3 +1,26 @@
 @mixin size($width, $height) 
   width: $width
   height: $height
+
+
+@mixin rounded-corners
+    border-radius: 2px
+
+@mixin rounded-corners-extreme
+    border-radius: 25px
+
+@mixin button-default-style
+  padding: 12px 16px
+  background: $color-primary-lightened
+  color: $color-on-primary
+  @include shadow-8dp-ambient
+  @include rounded-corners
+
+@mixin button-default-padding
+  padding: 12px 16px
+
+@mixin button-small-padding
+  padding: 8px 12px
+
+@mixin button-wide-padding
+  padding: 32px 12px

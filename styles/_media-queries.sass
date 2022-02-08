@@ -27,10 +27,6 @@
   @media (min-width: 1440px) 
     @content
 
-@mixin test() 
-  @media (min-width: 1300px) 
-    @content
-
 @mixin desktop() 
   @media (max-width: 1439px) and (min-width: 1240px) 
     @content
@@ -41,6 +37,11 @@
 
 @mixin tablet() 
   @media (max-width: 1239px) and (min-width: 600px) 
+    @content
+
+
+@mixin tablet-mobile() 
+  @media (max-width: 1239px)
     @content
 
 @mixin mobile() 

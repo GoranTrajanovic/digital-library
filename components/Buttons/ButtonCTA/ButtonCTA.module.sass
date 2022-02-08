@@ -1,0 +1,17 @@
+.button
+    @include font-button-desktop-CTA
+    @include button-default-style
+    @include shadow-12dp-ambient
+    background: $color-gradient-pink-orange
+    color: $color-dark-emphasis
+
+    &:hover
+        background: $color-secondary
+    &:active
+        background: $color-gradient-pink-orange-emphasis
+        
+    @include tablet()
+        @include font-button-tablet-CTA
+
+    @include mobile()
+        @include font-button-mobile-CTA

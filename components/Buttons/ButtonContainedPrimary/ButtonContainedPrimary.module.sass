@@ -1,0 +1,32 @@
+.button, %button
+    @include font-button-desktop-regular-SemiBold
+    @include button-default-style
+    @include shadow-12dp-ambient
+
+    &:hover
+        background: $color-button-primary-hovered
+    &:active
+        background: $color-primary-lightened
+        
+    @include tablet-mobile()
+        @include font-button-mobile-regular-SemiBold
+
+.button-with-symbol, %button-with-symbol
+    display: inline-flex
+    align-items: center
+    height: 44px
+
+    @include tablet-mobile()
+        height: 41px
+
+// mutate only this part for new variants
+.button-symbol-left-bookmark
+    @extend %button
+    @extend %button-with-symbol
+    &::before
+        @include icon-bookmark-regular($color_hue: white)
+        display: inline-flex
+        margin-right: 4px
+
+        @include tablet-mobile()
+            @include icon-bookmark-small($color_hue: white)

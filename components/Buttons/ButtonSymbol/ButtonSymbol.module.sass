@@ -1,0 +1,20 @@
+.button
+    @include button-default-style
+    @include shadow-12dp-ambient
+    width: 65px
+
+    &:hover
+        background: $color-button-primary-hovered
+    &:active
+        background: $color-primary-lightened
+
+    &::before
+        @include icon-bookmark-regular($color-hue: white)
+        //display: inline-flex
+
+
+        @include tablet-mobile()
+            @include icon-bookmark-small($color-hue: white)
+
+    @include tablet-mobile()
+        width: auto
