@@ -1,0 +1,463 @@
+/* All Devices/Headline S */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 32px;
+/* or 133% */
+
+
+
+/* All Devices/Body L */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+
+letter-spacing: 0.15px;
+
+
+/* All Devices/Body M */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 20px;
+/* or 143% */
+
+letter-spacing: 0.25px;
+
+
+/* All Devices/Body S */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 18px;
+/* or 150% */
+
+letter-spacing: 0.4px;
+
+
+/* All Devices/Body S SemiBold */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 12px;
+line-height: 18px;
+/* or 150% */
+
+letter-spacing: 0.4px;
+
+/* Desktop/Headline M */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 40px;
+/* or 125% */
+
+/* Desktop/Title L */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 28px;
+line-height: 34px;
+/* or 121% */
+
+/* Desktop/Title M */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 22px;
+line-height: 30px;
+/* or 136% */
+
+letter-spacing: 0.15px;
+
+
+;
+
+/* Desktop/Title S */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 24px;
+/* or 133% */
+
+letter-spacing: 0.1px;
+
+
+;
+
+/* Desktop/Title S SemiBold */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 24px;
+/* or 133% */
+
+letter-spacing: 0.1px;
+;
+
+/* Desktop/Label L */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 24px;
+/* or 133% */
+
+letter-spacing: 0.1px;
+
+/* Desktop/Label M */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 20px;
+/* or 125% */
+
+letter-spacing: 0.5px;
+
+/* Desktop/Label S */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 19px;
+/* or 136% */
+
+letter-spacing: 0.5px;
+
+/* Desktop/Label S SemiBold */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 19px;
+/* or 136% */
+
+letter-spacing: 0.5px;
+
+/* Desktop/Label M SemiBold */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 20px;
+/* or 125% */
+
+letter-spacing: 0.5px;
+
+/* : 9;
+align-self: stretch;
+flex-grow: 0;
+margin: 9px 0px;
+
+
+/* Tablet/Headline L */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 44px;
+/* or 122% */
+
+/* Tablet/Headline M */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 40px;
+/* or 125% */
+
+/* Tablet/Title L */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 30px;
+/* or 125% */
+
+
+/* Tablet/Title M */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 26px;
+/* or 144% */
+
+letter-spacing: 0.15px;
+
+
+;
+
+/* Tablet/Title S */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 22px;
+/* or 137% */
+
+letter-spacing: 0.1px;
+;
+
+/* Tablet/Label L */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 22px;
+/* or 137% */
+
+letter-spacing: 0.1px;
+
+/* Tablet/Label M */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 20px;
+/* or 143% */
+
+letter-spacing: 0.5px;
+
+/* Tablet/Label S */
+
+font-family: Nunito;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 17px;
+/* or 142% */
+
+letter-spacing: 0.5px;
+
+
+
+
+/* Tablet/Title S SemiBold */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 22px;
+/* or 137% */
+
+letter-spacing: 0.1px;
+
+/* Mobile/Headline L */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 32px;
+line-height: 40px;
+/* or 125% */
+
+/* Mobile/Headline M */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 28px;
+line-height: 36px;
+/* or 129% */
+
+/* Mobile/Title L */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 22px;
+line-height: 28px;
+/* or 127% */
+
+
+;
+
+/* Mobile/Title M */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+
+letter-spacing: 0.15px;
+
+
+;
+
+/* Mobile/Title S */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 20px;
+/* or 143% */
+
+letter-spacing: 0.1px;
+;
+
+/* Mobile/Label l */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 22px;
+/* or 137% */
+
+letter-spacing: 0.1px;
+
+/* Mobile/Label M */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 20px;
+/* or 143% */
+
+letter-spacing: 0.5px;
+
+/* Mobile/Label S */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 17px;
+/* or 142% */
+
+letter-spacing: 0.5px;
+
+
+
+
+/* Mobile/Title S SemiBold */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 20px;
+/* or 143% */
+
+letter-spacing: 0.1px;
+
+/* Button/Desktop-CTA */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 20px;
+/* or 125% */
+
+letter-spacing: 0.5px;
+* Button/Tablet-CTA */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 20px;
+/* or 143% */
+
+letter-spacing: 0.7px;
+* Button/Mobile-CTA */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 12px;
+line-height: 17px;
+/* or 142% */
+
+letter-spacing: 0.7px;
+
+
+
+/* Button/Desktop Regular SemiBold */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 20px;
+/* or 143% */
+
+letter-spacing: 0.7px;
+
+
+
+/* Button/Tablet-Mobile Regular SemiBold */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 12px;
+line-height: 17px;
+/* or 142% */
+
+letter-spacing: 0.7px;
+
+/* Button/Desktop Regular */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 20px;
+/* or 143% */
+
+letter-spacing: 0.7px;
+* Button/Tablet-Mobile Regular */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 17px;
+/* or 142% */
+
+letter-spacing: 0.7px;
+
+/* : 6;
+align-self: stretch;
+flex-grow: 0;
+margin: 9px 0px;

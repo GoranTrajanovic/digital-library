@@ -1,0 +1,174 @@
+/* Container/Primary Container */
+@mixin color-container-primary {
+	background: #bcd8ff;
+}
+
+/*Full Color/Primary */
+@mixin color-full-color-primary {
+	background: #054499;
+}
+
+/* Full Color/Text */
+@mixin color-full-color-text {
+	background: #736e77;
+}
+
+/* Full Color/Secondary */
+@mixin color-full-color-secondary {
+	background: #ffb730;
+}
+
+/*Full Color/Primary Middle Lightned */
+@mixin color-full-primary-middle-lightened {
+	background: #1f70dd;
+}
+
+/*Full Color/Secondary Lighter */
+@mixin color-full-secondary-lighter {
+	background: #ffc75e;
+}
+
+/*Full Color/Card Background */
+@mixin color-full-card-background {
+	background: #ffffff;
+}
+
+/*Full Color/Secondary Darker */
+@mixin color-full-secondary-darker {
+	background: #dd9a1e;
+}
+
+/*Full Color/Dark Background */
+@mixin color-full-dark-background {
+	background: #424242;
+}
+
+/*Full Color/Tertiary */
+@mixin color-full-color-tertiary {
+	background: #13ba92;
+}
+
+/*Full Color/Titles, #111 */
+@mixin color-full-titles {
+	background: #111111;
+}
+
+/*Full Color/Error */
+@mixin color-full-error {
+	background: #ff4242;
+}
+
+/* Miscellaneous/Background */
+@mixin color-misc-background {
+	background: #fffdf8;
+}
+
+/* Miscellaneous/Surface Variant */
+@mixin color-misc-surface-variant {
+	background: #e7e0ec;
+}
+
+/* Miscellaneous/Surface */
+@mixin color-misc-surface {
+	background: #fffdf5;
+}
+
+/* Miscellaneous/Outline */
+@mixin color-misc-outline {
+	background: #79747e;
+}
+
+/* Miscellaneous/Outline Card */
+@mixin color-misc-outline-card {
+	background: rgba(187, 187, 187, 0.5);
+}
+
+/* Miscellaneous/Surface Variant 10% Darker */
+@mixin color-misc-surface-variant-10perc-lighter {
+	background: #cec0d8;
+}
+
+/* Miscellaneous/Surface Variant 5% Lighter */
+@mixin color-misc-surface-variant-5perc-lighter {
+	background: #f3eff5;
+}
+
+/* On/On Primary */
+@mixin color-on-primary {
+	background: #ffffff;
+}
+
+/* On/On Secondary */
+@mixin color-on-secondary {
+	background: #111111;
+}
+
+/* On/On Tertiary */
+@mixin color-on-tertiary {
+	background: #ffffff;
+}
+
+/* On/On Error */
+@mixin color-on-error {
+	background: #ffffff;
+}
+
+/* On/On Primary on */
+@mixin color-on-primary-container {
+	background: #002455;
+}
+
+/* On/On Secondary on */
+@mixin color-on-secondary-container {
+	background: #553700;
+}
+
+/* On/On Tertiary on */
+@mixin color-on-tertiary-container {
+	background: #00684f;
+}
+
+/* On/On Error on */
+@mixin color-on-error-container {
+	background: #770707;
+}
+
+/* On/On Background */
+@mixin color-on-background {
+	background: #000b1a;
+}
+
+/* On/On Surface */
+@mixin color-on-surface {
+	background: #1b2028;
+}
+
+/* On/On Surface Variant */
+@mixin color-on-surface-variant {
+	background: #49454e;
+}
+
+/* On/On Dark Background */
+@mixin color-on-dark-background {
+	background: #ffffff;
+}
+
+/* Gradient/Pink-Orange */
+@mixin color-gradient-pink-orange {
+	background: linear-gradient(74.56deg, #ff66cc -92.33%, #ffb730 73.11%);
+}
+
+/* Gradient/Pink-Orange Emphasis */
+@mixin color-gradient-pink-orange-emphasis {
+	background: linear-gradient(188.7deg, #ff33bb -181.62%, #ff9a1a 142.86%);
+}
+
+/* Button/Primary Hovered */
+@mixin color-button-primary-hovered {
+	background: #3189ff;
+}
+
+/* Overlay/Dark */
+@mixin color-overlay-dark {
+	background: rgba(0, 0, 0, 0.9);
+}

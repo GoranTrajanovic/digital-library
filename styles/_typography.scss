@@ -1,0 +1,286 @@
+/* All Devices/Headline S */
+@mixin font-all-devices-headline-S {
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 32px;
+}
+
+/* All Devices/Body L */
+@mixin font-all-devices-body-L {
+	font-size: 16px;
+	line-height: 24px;
+	letter-spacing: 0.15px;
+}
+
+/* All Devices/Body M */
+@mixin font-all-devices-body-M {
+	font-size: 14px;
+	line-height: 20px;
+	letter-spacing: 0.25px;
+}
+
+/* All Devices/Body S */
+@mixin font-all-devices-body-S {
+	font-size: 12px;
+	line-height: 18px;
+	letter-spacing: 0.4px;
+}
+
+/* All Devices/Body S SemiBold */
+@mixin font-all-devices-body-S-SemiBold {
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 18px;
+	letter-spacing: 0.4px;
+}
+
+/* Desktop/Headline M */
+@mixin font-desktop-headline-M {
+	font-weight: 600;
+	font-size: 32px;
+	line-height: 40px;
+}
+
+/* Desktop/Title L */
+@mixin font-desktop-title-L {
+	font-size: 28px;
+	line-height: 34px;
+}
+
+/* Desktop/Title M */
+@mixin font-desktop-title-M {
+	font-size: 22px;
+	line-height: 30px;
+	letter-spacing: 0.15px;
+}
+
+/* Desktop/Title S */
+@mixin font-desktop-title-S {
+	font-size: 18px;
+	line-height: 24px;
+	letter-spacing: 0.1px;
+}
+
+/* Desktop/Title S SemiBold */
+@mixin font-desktop-title-S-SemiBold {
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 24px;
+	letter-spacing: 0.1px;
+}
+/* Desktop/Label L */
+@mixin font-desktop-label-L {
+	font-size: 18px;
+	line-height: 24px;
+	letter-spacing: 0.1px;
+}
+
+/* Desktop/Label M */
+@mixin font-desktop-label-M {
+	font-size: 16px;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+}
+
+/* Desktop/Label S */
+@mixin font-desktop-label-S {
+	font-size: 14px;
+	line-height: 19px;
+	letter-spacing: 0.5px;
+}
+
+/* Desktop/Label S SemiBold */
+@mixin font-desktop-label-S-SemiBold {
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 19px;
+	letter-spacing: 0.5px;
+}
+
+/* Desktop/Label M SemiBold */
+@mixin font-desktop-label-M-SemiBold {
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+}
+
+/* Tablet/Headline L */
+@mixin font-tablet-headline-L {
+	font-size: 36px;
+	line-height: 44px;
+}
+
+/* Tablet/Headline M */
+@mixin font-tablet-headline-M-SemiBold {
+	font-weight: 600;
+	font-size: 32px;
+	line-height: 40px;
+}
+
+/* Tablet/Title L */
+@mixin font-tablet-title-L {
+	font-size: 24px;
+	line-height: 30px;
+}
+
+/* Tablet/Title M */
+@mixin font-tablet-title-M {
+	font-size: 18px;
+	line-height: 26px;
+	letter-spacing: 0.15px;
+}
+
+/* Tablet/Title S */
+@mixin font-tablet-title-S {
+	font-size: 16px;
+	line-height: 22px;
+	letter-spacing: 0.1px;
+}
+
+/* Tablet/Label L */
+@mixin font-tablet-label-L {
+	font-size: 16px;
+	line-height: 22px;
+	letter-spacing: 0.1px;
+}
+
+/* Tablet/Label M */
+@mixin font-tablet-label-M {
+	font-size: 14px;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+}
+
+/* Tablet/Label S */
+@mixin font-tablet-label-S {
+	font-family: Nunito;
+	font-size: 12px;
+	line-height: 17px;
+	letter-spacing: 0.5px;
+}
+
+/* Tablet/Title S SemiBold */
+@mixin font-tablet-title-S-SemiBold {
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 22px;
+	letter-spacing: 0.1px;
+}
+
+/* Mobile/Headline L */
+@mixin font-mobile-headline-L {
+	font-size: 32px;
+	line-height: 40px;
+}
+
+/* Mobile/Headline M */
+@mixin font-mobile-headline-M-SemiBold {
+	font-weight: 600;
+	font-size: 28px;
+	line-height: 36px;
+}
+
+/* Mobile/Title L */
+@mixin font-mobile-title-L-SemiBold {
+	font-weight: 600;
+	font-size: 22px;
+	line-height: 28px;
+}
+
+/* Mobile/Title M */
+@mixin font-mobile-title-M {
+	font-size: 16px;
+	line-height: 24px;
+	letter-spacing: 0.15px;
+}
+
+/* Mobile/Title S */
+@mixin font-mobile-title-S {
+	font-size: 14px;
+	line-height: 20px;
+	letter-spacing: 0.1px;
+}
+
+/* Mobile/Label l */
+@mixin font-mobile-label-S {
+	font-size: 16px;
+	line-height: 22px;
+	letter-spacing: 0.1px;
+}
+
+/* Mobile/Label M */
+@mixin font-mobile-label-M {
+	font-size: 14px;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+}
+
+/* Mobile/Label S */
+@mixin font-mobile-label-S {
+	font-size: 12px;
+	line-height: 17px;
+	letter-spacing: 0.5px;
+}
+
+/* Mobile/Title S SemiBold */
+@mixin font-mobile-title-S-SemiBold {
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 20px;
+	letter-spacing: 0.1px;
+}
+
+/* Button/Desktop-CTA */
+@mixin font-button-desktop-CTA {
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+}
+
+/*Button/Tablet-CTA */
+@mixin font-button-tablet-CTA {
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 20px;
+	letter-spacing: 0.7px;
+}
+
+/*Button/Mobile-CTA */
+@mixin font-button-mobile-CTA {
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 17px;
+	letter-spacing: 0.7px;
+}
+
+/* Button/Desktop Regular SemiBold */
+@mixin font-button-desktop-regular-SemiBold {
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 20px;
+	letter-spacing: 0.7px;
+}
+
+/* Button/Tablet-Mobile Regular SemiBold */
+@mixin font-button-mobile-regular-SemiBold {
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 17px;
+	letter-spacing: 0.7px;
+}
+
+/* Button/Desktop Regular */
+@mixin font-button-desktop-regular {
+	font-size: 14px;
+	line-height: 20px;
+	letter-spacing: 0.7px;
+}
+
+/*Button/Tablet-Mobile Regular */
+@mixin font-button-mobile-regular {
+	font-size: 12px;
+	line-height: 17px;
+	letter-spacing: 0.7px;
+}

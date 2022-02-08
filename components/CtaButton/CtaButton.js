@@ -1,5 +1,9 @@
 import styles from "./CtaButton.module.sass";
 
 export default function CtaButton() {
-	return <></>;
+	return (
+		<>
+			<p className={styles.button}>button</p>
+		</>
+	);
 }
