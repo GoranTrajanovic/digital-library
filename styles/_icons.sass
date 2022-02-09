@@ -1,15 +1,18 @@
 @mixin icon-regular-size
+    position: absolute
+    left: 16px
     width: 24px
     height: 24px
-    display: inline-block
 
 @mixin icon-small-size
-    display: inline-block
+    position: absolute
+    left: 16px
     width: 20px
     height: 20px
 
 @mixin icon-big-size
-    display: inline-block
+    position: absolute
+    left: 16px
     width: 44px
     height: 44px
 
@@ -29,17 +32,11 @@
     //color: #13ba92
     filter: invert(53%) sepia(98%) saturate(375%) hue-rotate(115deg) brightness(91%) contrast(91%)
 
-@mixin icon-algorithm-big($color_hue)
+@mixin icon-algorithm-big
     content: ''
     background-image: url('/icons/icon-algorithm-big.svg')
     display: inline-block
-    @include icon-big-size
-    @if $color_hue == dark
-        @include icon-dark-color
-    @else if $color_hue == green
-        @include icon-green-color
-    @else 
-        @include icon-gray-color
+    color: $color-text
 
 @mixin icon-arrow_diagonal-regular($color_hue)
     content: ''
@@ -67,21 +64,15 @@
 
 @mixin icon-article-regular
     content: ''
-        display: inline-block
+    display: inline-block
     background-image: url('/icons/icon-article-regular.svg')
     @include icon-regular-size
 
-@mixin icon-book-big($color_hue)
+@mixin icon-book-big
     content: ''
     background-image: url('/icons/icon-book-big.svg')
     display: inline-block
-    @include icon-big-size
-    @if $color_hue == dark
-        @include icon-dark-color
-    @else if $color_hue == green
-        @include icon-green-color
-    @else 
-        @include icon-gray-color
+    color: $color-text
 
 @mixin icon-bookmark-regular($color_hue)
     content: ''
@@ -132,53 +123,35 @@
     @else 
         @include icon-white-color
 
-@mixin icon-camera-big($color_hue)
+@mixin icon-camera-big
     content: ''
     background-image: url('/icons/icon-camera-big.svg')
     display: inline-block
-    @include icon-big-size
-    @if $color_hue == dark
-        @include icon-dark-color
-    @else if $color_hue == green
-        @include icon-green-color
-    @else 
-        @include icon-gray-color
+    color: $color-text
 
 @mixin icon-course-free-regular
     content: ''
-        display: inline-block
+    display: inline-block
     background-image: url('/icons/icon-course-free-regular.svg')
     @include icon-regular-size
 
 @mixin icon-course-payed-regular
     content: ''
-        display: inline-block
+    display: inline-block
     background-image: url('/icons/icon-course-payed-regular.svg')
     @include icon-regular-size
 
-@mixin icon-crypto-big($color_hue)
+@mixin icon-crypto-big
     content: ''
     background-image: url('/icons/icon-crypto-big.svg')
     display: inline-block
-    @include icon-big-size
-    @if $color_hue == dark
-        @include icon-dark-color
-    @else if $color_hue == green
-        @include icon-green-color
-    @else 
-        @include icon-gray-color
+    color: $color-text
 
-@mixin icon-design-big($color_hue)
+@mixin icon-design-big
     content: ''
     background-image: url('/icons/icon-design-big.svg')
     display: inline-block
-    @include icon-big-size
-    @if $color_hue == dark
-        @include icon-dark-color
-    @else if $color_hue == green
-        @include icon-green-color
-    @else 
-        @include icon-gray-color
+    color: $color-text
 
 @mixin icon-done-regular($color_hue)
     content: ''
@@ -230,21 +203,15 @@
 
 @mixin icon-google-regular
     content: ''
-        display: inline-block
+    display: inline-block
     background-image: url('/icons/icon-google-regular.svg')
     @include icon-regular-size
 
-@mixin icon-joystick-big($color_hue)
+@mixin icon-joystick-big
     content: ''
     background-image: url('/icons/icon-joystick-big.svg')
     display: inline-block
-    @include icon-big-size
-    @if $color_hue == dark
-        @include icon-dark-color
-    @else if $color_hue == green
-        @include icon-green-color
-    @else 
-        @include icon-gray-color
+    color: $color-text
 
 @mixin icon-people-regular($color_hue)
     content: ''
@@ -258,9 +225,9 @@
     @else 
         @include icon-white-color
 
-    display: inline-block
 
 @mixin icon-people-small
+    display: inline-block
     background-image: url('/icons/icon-people-small.svg')
     @include icon-small-size
     @include icon-white-color
@@ -313,17 +280,11 @@
     @else 
         @include icon-white-color
 
-@mixin icon-stats-big($color_hue)
+@mixin icon-stats-big
     content: ''
     background-image: url('/icons/icon-stats-big.svg')
     display: inline-block
-    @include icon-big-size
-    @if $color_hue == dark
-        @include icon-dark-color
-    @else if $color_hue == green
-        @include icon-green-color
-    @else 
-        @include icon-gray-color
+    color: $color-text
 
 @mixin icon-stats-regular($color_hue)
     content: ''
@@ -373,31 +334,26 @@
     @else 
         @include icon-white-color
 
-@mixin icon-video_tape-big($color_hue)
+@mixin icon-video_tape-big
     content: ''
     background-image: url('/icons/icon-video_tape-big.svg')
     display: inline-block
-    @include icon-big-size
-    @if $color_hue == dark
-        @include icon-dark-color
-    @else if $color_hue == green
-        @include icon-green-color
-    @else 
-        @include icon-gray-color
+    color: $color-text
 
-@mixin icon-web_laptop-big($color_hue)
+@mixin icon-web_laptop-big
     content: ''
     background-image: url('/icons/icon-web_laptop-big.svg')
     display: inline-block
-    @include icon-big-size
-    @if $color_hue == dark
-        @include icon-dark-color
-    @else if $color_hue == green
-        @include icon-green-color
-    @else 
-        @include icon-gray-color
+    color: $color-text
 
-@mixin icon-youtube-regular($color_hue)
+@mixin icon-youtube-regular
     content: ''
+    display: inline-block
     background-image: url('/icons/icon-youtube-regular.svg')
+    @include icon-regular-size
+
+@mixin icon-course-payed-regular
+    content: ''
+    display: inline-block
+    background-image: url('/icons/icon-course-payed-regular.svg')
     @include icon-regular-size

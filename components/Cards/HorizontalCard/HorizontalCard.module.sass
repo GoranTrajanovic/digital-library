@@ -1,0 +1,71 @@
+.card-wrapper
+    @include rounded-corners
+    @include shadow-24dp-ambient
+    display: flex
+    //justify-content: space-between
+    width: $desktop-container-width
+    max-width: $desktop-container-max-width
+    border: 1px solid $color-outline-card
+    background: $bg-color-card
+    margin: 75px auto 0px auto
+    padding: 25px
+
+    @include tablet()
+        width: $tablet-container-width
+
+
+    &:nth-child(1)
+        margin-top: 50px
+.buttons-wrapper
+    display: inline-flex
+    margin-left: 50px
+
+    @include tablet()
+        // flex-flow: column
+        flex-direction: column-reverse
+        margin-right: 0px
+        margin-left: 25px
+
+        button:nth-child(2)
+            margin-right: 0px
+            margin-bottom: 25px
+    
+    button:nth-child(1)
+        margin-right: 25px
+
+.card-details-wrapper
+    display: flex
+    flex-flow: row
+    align-items: center
+    justify-content: space-between
+    margin: auto 25px auto auto
+
+    @include tablet()
+        margin-right: 0
+
+@media (max-width: 1100px)
+    .card-details-wrapper
+        flex-flow: column
+        margin: auto        
+
+    .buttons-wrapper
+        flex-direction: row
+        align-self: flex-end
+        margin: 20px 0 0 0 
+
+
+@media (max-width: 860px)
+    .card-wrapper
+        flex-direction: column
+
+    .card-details-wrapper
+        flex-flow: column
+        margin: auto        
+
+    .buttons-wrapper
+        flex-direction: row
+        align-self: flex-end
+        margin: 20px 0 0 0 
+    
+
+    

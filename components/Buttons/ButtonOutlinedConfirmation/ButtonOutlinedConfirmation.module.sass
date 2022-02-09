@@ -1,9 +1,9 @@
 .button, %button
     @include font-button-desktop-regular-SemiBold
     @include rounded-corners
+    @include button-default-size
     color: $color-tertiary
     background: $bg-color
-    height: 44px
     border: 2px solid $color-tertiary
     padding: 12px 16px
 
@@ -16,6 +16,7 @@
         height: 41px
 
 .button-with-symbol, %button-with-symbol
+    position: relative
     display: inline-flex
     align-items: center
 
@@ -24,11 +25,13 @@
 .button-symbol-left-done
     @extend %button
     @extend %button-with-symbol
+    padding-left: 45px
+
+    @include tablet-mobile()
+        padding-left: 42px
+
     &::before
         @include icon-done-regular($color_hue: green)
-        display: inline-flex
-        margin-right: 4px
-
 
         @include tablet-mobile()
             @include icon-done-small($color_hue: green)

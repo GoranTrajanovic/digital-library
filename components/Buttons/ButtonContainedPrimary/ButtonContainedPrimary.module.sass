@@ -1,17 +1,20 @@
 .button, %button
     @include font-button-desktop-regular-SemiBold
+    @include button-default-size
     @include button-default-style
     @include shadow-12dp-ambient
+    text-transform: capitalize
 
     &:hover
         background: $color-button-primary-hovered
     &:active
         background: $color-primary-lightened
         
-    @include tablet-mobile()
-        @include font-button-mobile-regular-SemiBold
+    // @include tablet-mobile()
+        // @include font-button-mobile-regular-SemiBold
 
 .button-with-symbol, %button-with-symbol
+    position: relative
     display: inline-flex
     align-items: center
     height: 44px
@@ -21,12 +24,76 @@
 
 // mutate only this part for new variants
 .button-symbol-left-bookmark
-    @extend %button
-    @extend %button-with-symbol
+    padding-left: 40px
+
+    @include tablet-mobile()
+        padding-left: 36px
     &::before
         @include icon-bookmark-regular($color_hue: white)
-        display: inline-flex
-        margin-right: 4px
 
         @include tablet-mobile()
             @include icon-bookmark-small($color_hue: white)
+
+.button-symbol-right-start
+    @extend %button
+    @extend %button-with-symbol
+    background: $color-tertiary
+    justify-content: center
+
+    &:hover
+        background: $color-tertiary
+    &:active
+        background: $color-tertiary
+
+    @include tablet-mobile()
+    &::after
+        @include icon-arrow_diagonal-regular($color_hue: white)
+
+        @include tablet-mobile()
+            @include icon-arrow_diagonal-small($color_hue: white)
+            position: relative
+            left: 4px
+
+.button-symbol-right-resume
+    @extend %button
+    @extend %button-with-symbol
+    background: $color-secondary
+    justify-content: center
+    color: $color-dark-emphasis
+
+    &:hover
+        background: $color-secondary
+    &:active
+        background: $color-secondary
+
+    @include tablet-mobile()
+    &::after
+        @include icon-play_arrow-regular($color_hue: dark)
+
+        @include tablet-mobile()
+            @include icon-play_arrow-small($color_hue: dark)
+            position: relative
+            left: 4px
+
+
+.button-symbol-right-review
+    @extend %button
+    @extend %button-with-symbol
+    background: $bg-color-card
+    justify-content: center
+    color: $color-tertiary
+    border: 2px solid $color-tertiary
+
+    &:hover
+        background: $bg-color-card
+    &:active
+        background: $bg-color-card
+
+    @include tablet-mobile()
+    &::after
+        @include icon-stats-regular($color_hue: green)
+
+        @include tablet-mobile()
+            @include icon-stats-small($color_hue: green)
+            position: relative
+            left: 4px

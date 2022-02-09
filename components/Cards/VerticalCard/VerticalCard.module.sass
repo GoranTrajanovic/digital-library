@@ -1,0 +1,49 @@
+.card-wrapper
+    @include rounded-corners
+    @include shadow-24dp-ambient
+    background: $bg-color-card
+    display: inline-flex
+    flex-flow: column
+    align-items: center
+    justify-content: space-between
+    border: 1px solid $color-outline-card
+    width: 285px
+    height: 425px
+    margin-left: 200px
+    padding: 25px 10px 25px 10px
+
+    > span
+        @include font-all-devices-body-S
+        color: $color-text
+        text-transform: uppercase
+
+.buttons-wrapper
+    display: flex
+    width: 98%
+    justify-content: space-between
+    margin-top: 10px
+
+    @include mobile()
+        width: 90%
+
+.action-wrapper
+    display: flex
+    flex-flow: column
+    align-items: center
+    
+    span
+        margin-top: 20px
+        font-size: 12px
+        // text-transform: capitalize
+
+        &::first-letter
+            text-transform: uppercase
+
+        &.ready
+            color: $color-text
+
+        &.in-progress
+            color: $color-secondary
+
+        &.completed
+            color: $color-tertiary

@@ -1,0 +1,24 @@
+.title-wrapper
+    position: relative
+    display: flex
+    align-items: center
+    margin-bottom: 10px
+    flex-direction: row wrap
+    
+    h3
+        @include font-desktop-title-S-SemiBold
+        text-transform: capitalize
+
+    span
+        @include font-all-devices-body-S
+        text-transform: uppercase
+        color: $color-text
+
+.youtube::before
+    @include icon-course-free-regular
+    position: relative
+    left: 0
+    margin-right: 8px
+
+// span.youtube
+//     left: 0

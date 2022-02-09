@@ -7,6 +7,7 @@ body {
 	margin: 0;
 	font-family: "Poppins", sans-serif;
 	font-weight: 400;
+	background: #fffdf8;
 }
 
 a {
@@ -16,8 +17,4 @@ a {
 
 * {
 	box-sizing: border-box;
-}
-
-:root {
-	--new_red: #ff5025;
 }

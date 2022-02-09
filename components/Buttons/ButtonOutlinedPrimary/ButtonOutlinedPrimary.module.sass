@@ -1,9 +1,9 @@
 .button, %button
     @include font-button-desktop-regular-SemiBold
     @include rounded-corners
+    @include button-default-size
     color: $color-dark-emphasis
     background: $bg-color
-    height: 44px
     border: 2px solid $color-dark-emphasis
     padding: 12px 16px
 
@@ -14,10 +14,10 @@
         background: lighten($color-dark-emphasis, 70%)
         
     @include tablet-mobile()
-        height: 41px
         @include font-button-mobile-regular-SemiBold
 
 .button-with-symbol, %button-with-symbol
+    position: relative
     display: inline-flex
     align-items: center
 
@@ -26,11 +26,13 @@
 .button-symbol-left-bookmark
     @extend %button
     @extend %button-with-symbol
+    padding-left: 40px
+
+    @include tablet-mobile()
+        padding-left: 36px
+
     &::before
         @include icon-bookmark-regular($color_hue: dark)
-        display: inline-flex
-        margin-right: 4px
-
 
         @include tablet-mobile()
             @include icon-bookmark-small($color_hue: dark)

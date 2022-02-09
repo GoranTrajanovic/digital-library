@@ -1,10 +1,10 @@
 import styles from "./ButtonOutlinedConfirmation.module.sass";
 
-export default function ButtonOutlinedConfirmation({ type }) {
+export default function ButtonOutlinedConfirmation({ children, type }) {
 	return (
 		<>
 			<button className={styles["button" + (type ? "-" + type : "")]}>
-				<span>Saved</span>
+				{children}
 			</button>
 		</>
 	);
