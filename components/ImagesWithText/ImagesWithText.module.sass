@@ -1,0 +1,86 @@
+.wrapper 
+    width: 90%
+    max-width: 965px
+    margin: 125px auto 0 auto
+    display: flex
+
+    img
+        max-width: none !important
+
+    h2
+        @include font-desktop-headline-M-SemiBold
+        margin-bottom: 10px
+
+    p
+        @include font-all-devices-body-L
+        color: $color-text
+
+    @include tablet()
+        h2
+            @include font-tablet-headline-M-SemiBold
+            margin-bottom: 5px
+
+.wrapper:nth-child(even)
+    flex-flow: row-reverse
+
+    .text-wrapper
+        margin: auto 100px auto 0
+        
+        h2, p
+            text-align: end
+
+    @include mobile()
+        margin: 125px auto 0 auto
+
+.text-wrapper
+    display: inline-block
+    margin: auto 0 auto 100px
+
+    @include tablet()
+        margin-left: 50px
+
+.image-wrapper
+    position: relative
+    display: inline-block
+    width: 350px
+    height: 280px
+    @include shadow-24dp-ambient
+
+    @include tablet-mobile()
+        transform: scale(0.8)
+        position: relative
+        left: -35px
+
+h2.heading-for-mobile
+    display: none
+
+@media (max-width: 904px)
+    h2.heading-for-mobile
+        display: inline
+
+
+    h2:not(.heading-for-mobile)
+        display: none
+
+    .wrapper
+        flex-flow: column !important
+        width: 70%
+        justify-content: flex-start
+        
+
+        .text-wrapper
+            margin: 0
+        &:nth-child(even) 
+                
+            .text-wrapper p
+                text-align: start
+
+    .image-wrapper
+        display: inline
+
+@media (max-width: 500px)
+    .wrapper
+        width: 90%
+
+        h2
+            max-width: 60%
