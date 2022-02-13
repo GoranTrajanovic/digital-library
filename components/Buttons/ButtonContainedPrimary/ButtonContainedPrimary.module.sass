@@ -37,17 +37,27 @@
 .button-symbol-right-start
     @extend %button
     @extend %button-with-symbol
-    background: $color-tertiary
+    // background: $color-tertiary
+    background: $color-primary-lightened
     justify-content: center
 
     &:hover
-        background: $color-tertiary
-    &:active
-        background: $color-tertiary
+        // background: $color-tertiary
+        background: $color-button-primary-hovered
 
-    @include tablet-mobile()
+        &::after
+            transform: translate3d(2px,-2px,0)
+
+    &:active
+        // background: $color-tertiary
+        background: $color-primary-lightened
+
+
     &::after
         @include icon-arrow_diagonal-regular($color_hue: white)
+        position: relative
+        left: 4px
+        transition: transform .2s ease-in-out
 
         @include tablet-mobile()
             @include icon-arrow_diagonal-small($color_hue: white)
@@ -63,12 +73,19 @@
 
     &:hover
         background: $color-secondary
+
+        &::after
+            transform: translate3d(2px, 0px, 0px)
     &:active
         background: $color-secondary
 
     @include tablet-mobile()
     &::after
         @include icon-play_arrow-regular($color_hue: dark)
+        position: relative
+        left: 4px
+        transition: transform .2s ease-in-out
+        
 
         @include tablet-mobile()
             @include icon-play_arrow-small($color_hue: dark)
@@ -92,7 +109,9 @@
     @include tablet-mobile()
     &::after
         @include icon-stats-regular($color_hue: green)
-
+        position: relative
+        left: 4px
+        
         @include tablet-mobile()
             @include icon-stats-small($color_hue: green)
             position: relative

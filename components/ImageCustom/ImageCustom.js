@@ -6,7 +6,7 @@ export default function ImageCustom({
 	alt,
 	width,
 	height,
-	palceholder,
+	placeholder,
 	priority,
 	layout,
 }) {
@@ -17,7 +17,7 @@ export default function ImageCustom({
 				alt={alt}
 				width={width}
 				height={height}
-				palceholder={palceholder}
+				placeholder={placeholder}
 				priority={priority}
 				layout={layout}
 			/>

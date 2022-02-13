@@ -1,6 +1,7 @@
 .card-wrapper
     @include rounded-corners
     @include shadow-24dp-ambient
+    position: relative
     background: $bg-color-card
     display: inline-flex
     flex-flow: column
@@ -9,13 +10,15 @@
     border: 1px solid $color-outline-card
     width: 285px
     height: 425px
-    margin-left: 200px
     padding: 25px 10px 25px 10px
 
     > span
         @include font-all-devices-body-S
         color: $color-text
         text-transform: uppercase
+
+    // img
+    //     @include size(150px, 150px)
 
 .buttons-wrapper
     display: flex
@@ -26,15 +29,60 @@
     @include mobile()
         width: 90%
 
+
+    
+
+.buttons-wrapper.flex-column
+    flex-flow: column-reverse
+    align-items: center
+
+    button:nth-child(2)
+        margin: 10px 0 20px 0
+
 .action-wrapper
     display: flex
-    flex-flow: column
+    flex-flow: row
     align-items: center
+    z-index: 100
+    position: relative
+    margin-top: 35px
+
+    button:first-child
+        // display: none
+        visibility: hidden
+        position: absolute
+        z-index: 10
+        // transition: visibility .2s ease-in-out
+        left: -38px
+        transition: all .1s ease-in-out
+
+        @include tablet-mobile
+            left: -30px
+        
+    button:nth-child(2)
+        position: relative
+        left: 0
+        transition: all .2s ease-in-out
+
+.action-wrapper.extend
+    button:nth-child(1)
+        // display: inline-block
+        visibility: visible
+
+.action-wrapper.extend
+    button:nth-child(2)
+        left: 38px
+
+        @include tablet-mobile()
+            left: 30px
+
     
-    span
+.card-wrapper
+    > span:last-child
         margin-top: 20px
         font-size: 12px
-        // text-transform: capitalize
+        text-transform: lowercase
+        z-index: 100
 
         &::first-letter
             text-transform: uppercase
@@ -44,6 +92,41 @@
 
         &.in-progress
             color: $color-secondary
+            margin-left: 2px
 
         &.completed
             color: $color-tertiary
+
+.mobile-card-details
+    margin: 10px 0
+    display: none
+
+    li
+        line-height: 32px
+
+    li:nth-child(1)::before
+        @include icon-people-regular(dark)
+        position: relative
+        left: 0
+        vertical-align: middle
+        margin-right: 5px
+            
+    li:nth-child(2)::before
+        @include icon-calendar-regular(dark)
+        position: relative
+        left: 0
+        vertical-align: middle
+        margin-right: 5px
+
+@media (max-width: 905px)
+    .card-wrapper
+        width: 256px
+        height: auto
+        padding: 15px 10px
+
+    .mobile-card-details
+        display: inline-block
+
+        // img
+        //     width: 150px !important
+        //     height: 100px !important

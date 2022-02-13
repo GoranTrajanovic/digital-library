@@ -2,12 +2,16 @@
     position: relative
     display: flex
     align-items: center
-    margin-bottom: 10px
+    // margin-bottom: 10px
     flex-direction: row wrap
     
     h3
         @include font-desktop-title-S-SemiBold
         text-transform: capitalize
+        max-width: 135px
+        text-overflow: "-"
+        // overflow-wrap: break-word
+        word-wrap: break-word
 
     span
         @include font-all-devices-body-S
@@ -15,10 +19,29 @@
         color: $color-text
 
 .youtube::before
+    @include icon-youtube-regular
+
+.course-free::before
     @include icon-course-free-regular
+
+.course-payed::before
+    @include icon-course-payed-regular
+
+.article::before
+    @include icon-article-regular
+
+.youtube::before, .course-free::before, .course-payed::before, .article::before
     position: relative
     left: 0
-    margin-right: 8px
+    margin-right: 12px
+
+
+.hovered
+    z-index: 100
+
+    h3
+        transition: color .2s ease-in-out
+        color: $color-on-dark-background
 
 // span.youtube
 //     left: 0

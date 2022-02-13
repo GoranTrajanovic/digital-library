@@ -36,3 +36,12 @@
 
         @include tablet-mobile()
             @include icon-bookmark-small($color_hue: dark)
+
+.button-confirmation-turn-to-green
+    @extend %button
+    @extend %button-with-symbol
+    color: $color-tertiary
+    background: $bg-color
+    border: 2px solid $color-tertiary
+    justify-content: center
+

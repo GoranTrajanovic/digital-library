@@ -1,0 +1,49 @@
+.overlay
+    // @include rounded-corners
+    position: absolute
+    width: 100%
+    height: 100%
+    z-index: 10
+    top: 0
+    left: 0
+    padding-bottom: 45px
+    background: $color-overlay-dark
+    visibility: hidden
+    opacity: 0
+    transition: visibility .2s ease-in-out, opacity .2s ease-in-out
+
+.hovered
+    display: flex
+    flex-flow: column
+    visibility: visible
+    opacity: 1
+
+    ul 
+        margin: auto auto
+
+        li 
+            @include font-button-desktop-regular
+            color: $color-on-dark-background
+            list-style: none
+            line-height: 32px
+            align-self: center
+            
+
+
+            span
+                font-weight: 600
+            
+            &:nth-child(1)::before
+                    @include icon-people-regular(white)
+                    position: relative
+                    left: 0
+                    vertical-align: middle
+                    margin-right: 5px
+                
+            &:nth-child(2)::before
+                    @include icon-calendar-regular(white)
+                    position: relative
+                    left: 0
+                    vertical-align: middle
+                    margin-right: 5px
+                    
