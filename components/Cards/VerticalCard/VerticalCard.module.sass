@@ -39,7 +39,7 @@
     button:nth-child(2)
         margin: 10px 0 20px 0
 
-.action-wrapper
+.action-wrapper-start
     display: flex
     flex-flow: row
     align-items: center
@@ -64,18 +64,20 @@
         left: 0
         transition: all .2s ease-in-out
 
-.action-wrapper.extend
+.action-wrapper-start.extend
     button:nth-child(1)
         // display: inline-block
         visibility: visible
 
-.action-wrapper.extend
+.action-wrapper-start.extend
     button:nth-child(2)
         left: 38px
 
         @include tablet-mobile()
             left: 30px
 
+.action-wrapper
+    z-index: 100
     
 .card-wrapper
     > span:last-child
@@ -86,9 +88,13 @@
 
         &::first-letter
             text-transform: uppercase
+        
 
         &.ready
             color: $color-text
+
+        &.ready-on-overlay
+            color: $color-on-dark-background
 
         &.in-progress
             color: $color-secondary
@@ -96,6 +102,7 @@
 
         &.completed
             color: $color-tertiary
+
 
 .mobile-card-details
     margin: 10px 0

@@ -1,3 +1,10 @@
+.button.wishlisteeeed
+    background: $color-tertiary
+    
+    &:hover
+        background: $color-tertiary
+        cursor: auto
+
 .button
     @include button-default-style
     @include shadow-12dp-ambient
@@ -23,11 +30,3 @@
 
     @include tablet-mobile()
         width: auto
-
-.wishlisted
-    background: red !important
-    &::before
-        @include icon-bookmark-regular($color-hue: green)
-        //display: inline-flex
-        position: relative
-        left: 0

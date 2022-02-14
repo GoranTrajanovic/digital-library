@@ -40,7 +40,6 @@ export default function Home() {
 				cardDetails={cardDetails}
 			/> */}
 			<VerticalCardsLayout cardDetailsArray={dummyContent} />
-			<HorizontalCardsLayout cardDetailsArray={dummyContent2} />
 		</>
 	);
 }

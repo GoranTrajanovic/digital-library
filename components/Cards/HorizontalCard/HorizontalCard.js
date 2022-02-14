@@ -17,6 +17,7 @@ export default function HorizontalCard({ title, imgSrc, detailsList }) {
 	// 	////
 	// 	////
 	// 	// handle functionality
+	// add box-shadow: 0px 10px 33px rgba(19, 186, 146, 0.3) to card-wrapper
 	// };
 	const wishlistHandler = () => {
 		setShowWishlisted(true);
@@ -42,7 +43,7 @@ export default function HorizontalCard({ title, imgSrc, detailsList }) {
 							}
 							onPress={wishlistHandler}
 						>
-							{showWishlisted ? "Wishlisted" : "Wishlist"}
+							{showWishlisted ? "Added" : "Wishlist"}
 						</ButtonOutlinedPrimary>
 						<ButtonContainedPrimary>Read more</ButtonContainedPrimary>
 					</div>

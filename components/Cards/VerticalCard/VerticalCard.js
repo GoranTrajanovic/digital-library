@@ -18,12 +18,15 @@ export default function VerticalCard({
 }) {
 	const [cardIsHovered, setCardIsHovered] = useState(false);
 	const [showWishlisted, setShowWishlisted] = useState(false);
+	const BOOL_SCREEN_UNDER_WIDTH = useMediaQuery(906);
+
 	const wishlistHandler = () => {
 		setShowWishlisted(true);
 		////
 		////
 		// handle functionality (via item ID), problematic is when HorizontalCard gets turned to Vertical, cross check IDs again
 	};
+
 	if (type === "read-more") {
 		return (
 			<>
@@ -65,6 +68,33 @@ export default function VerticalCard({
 				STATUS = "completed";
 				break;
 		}
+
+		const ActionWrapperClassName = `${
+			ACTION === "start"
+				? styles["action-wrapper-start"]
+				: styles["action-wrapper"]
+		} ${cardIsHovered && styles["extend"]}`;
+
+		const ActionWrapper = (
+			<div className={ActionWrapperClassName}>
+				{type === "start" ? (
+					<ButtonSymbol
+						showWishlisted={showWishlisted}
+						onPress={wishlistHandler}
+					/>
+				) : (
+					""
+				)}
+				{/* <ButtonSymbol
+					showWishlisted={showWishlisted}
+					onPress={wishlistHandler}
+				/> */}
+				<ButtonContainedPrimary type={`symbol-right-${ACTION}`}>
+					{ACTION}
+				</ButtonContainedPrimary>
+			</div>
+		);
+
 		return (
 			<>
 				<div
@@ -82,28 +112,22 @@ export default function VerticalCard({
 					<ImageCustom
 						src={imgSrc}
 						alt={title}
-						width={useMediaQuery(906) ? 150 : 200}
-						height={useMediaQuery(906) ? 100 : 150}
+						width={BOOL_SCREEN_UNDER_WIDTH ? 150 : 200}
+						height={BOOL_SCREEN_UNDER_WIDTH ? 100 : 150}
 					/>
 					{/* <img src={imgSrc} alt={title} /> */}
 					<ul className={styles["mobile-card-details"]}>
 						<li>{new Intl.NumberFormat().format(cardDetails.viewCount)}</li>
 						<li>{cardDetails.date}</li>
 					</ul>
-					<div
-						className={`${styles["action-wrapper"]} ${
-							cardIsHovered && styles["extend"]
-						}`}
+					{ActionWrapper}
+					<span
+						className={
+							ACTION === "start" && cardIsHovered
+								? styles[STATUS.replace("!", "") + "-on-overlay"]
+								: styles[STATUS]
+						}
 					>
-						<ButtonSymbol
-							showWishlisted={showWishlisted}
-							onPress={wishlistHandler}
-						/>
-						<ButtonContainedPrimary type={`symbol-right-${ACTION}`}>
-							{ACTION}
-						</ButtonContainedPrimary>
-					</div>
-					<span className={styles[STATUS.replace("!", "")]}>
 						{STATUS.replace("-", " ")}
 					</span>
 				</div>
