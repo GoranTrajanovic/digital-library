@@ -4,6 +4,7 @@
     @include button-default-style
     @include shadow-12dp-ambient
     text-transform: capitalize
+    transition: background .3s ease-in-out, color .3s ease-in-out
 
     &:hover
         background: $color-button-primary-hovered
@@ -116,3 +117,7 @@
             @include icon-stats-small($color_hue: green)
             position: relative
             left: 4px
+
+.button-hide
+    @extend %button
+    visibility: hidden

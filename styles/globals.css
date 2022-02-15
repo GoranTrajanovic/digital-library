@@ -1,3 +1,10 @@
+@font-face {
+	font-family: "Redwing-Medium";
+	src: url("/fonts/Redwing-Medium.woff2") format("woff2"),
+		url("/fonts/Redwing-Medium.woff") format("woff"),
+		url("/fonts/Redwing-Medium.ttf") format("truetype");
+}
+
 @import "_reset.css";
 @import "_normalize.css";
 
@@ -8,6 +15,15 @@ body {
 	font-family: "Poppins", sans-serif;
 	font-weight: 400;
 	background: #fffdf8;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+input:focus {
+	outline: none;
+	box-shadow: 1px 1px 7px rgba(31, 112, 221, 0.5);
 }
 
 a {

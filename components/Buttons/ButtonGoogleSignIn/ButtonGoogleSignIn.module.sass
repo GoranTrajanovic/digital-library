@@ -1,0 +1,27 @@
+.button
+    @include font-desktop-label-S-SemiBold
+    @include rounded-corners
+    width: 200px
+    background: $color-button-primary-hovered
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 2px 10px 2px 2px
+    color: $color-on-primary
+    transition: background .3s ease-in-out, color .3s ease-in-out
+
+    &:hover
+        background: lighten($color-button-primary-hovered, 5%)
+    
+    span
+        background: white
+        @include size(34px, 34px)
+        display: inline-flex
+        justify-content: center
+        align-items: center
+
+        
+        &::before 
+            @include icon-google-regular
+            position: relative
+            left: 0

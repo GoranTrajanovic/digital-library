@@ -26,7 +26,7 @@ COMPONENT_LIST.forEach(componentName => {
 	writeToFile(
 		componentName,
 		".js",
-		`import styles from './${componentName}.module.css';\n
+		`import styles from './${componentName}.module.sass';\n
 export default function ${componentName}() {
     return <></>;
 }`

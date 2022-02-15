@@ -1,0 +1,47 @@
+.wrapper
+    display: flex
+    width: 276px
+    justify-content: space-between
+    align-items: center
+    
+    span:nth-child(odd)
+        border-radius: 50%
+        display: inline-flex
+        max-width: 36px
+        min-height: 36px
+        flex-grow: 2
+        background: $color-primary-lightened
+        color: $color-on-primary
+        justify-content: center
+        align-items: center
+        font-family: 'Redwing-Medium'
+        font-size: 14px
+        z-index: 100
+        transition: all .3s ease-in-out
+
+        &:hover
+            cursor: auto
+
+    span:nth-child(even)
+        flex-grow: 1
+        height: 2px
+        background: $bg-color-surface-variant
+        transition: all .3s ease-in-out
+
+.wrapper 
+    span.selected
+        &~span
+            background: $bg-color-surface-variant
+            border: none
+            color: $color-dark-emphasis
+
+            &:hover
+                cursor: auto
+
+
+.wrapper span.selected
+    border: 1.8px solid $color-on-primary
+    outline: 1.8px solid $color-primary-lightened
+
+.wrapper span.blue
+    background: $color-primary-lightened

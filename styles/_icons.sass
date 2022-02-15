@@ -32,13 +32,20 @@
     //color: #13ba92
     filter: invert(53%) sepia(98%) saturate(375%) hue-rotate(115deg) brightness(91%) contrast(91%)
 
+@mixin icon-blue-color
+    //color: #1f70dd
+    filter: invert(34%) sepia(95%) saturate(2142%) hue-rotate(203deg) brightness(90%) contrast(92%)
+
+
 @mixin icon-algorithm-big
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-algorithm-big.svg')
     display: inline-block
     color: $color-text
 
 @mixin icon-arrow_diagonal-regular($color_hue)
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-arrow_diagonal-regular.svg')
     display: inline-block
@@ -51,6 +58,7 @@
         @include icon-white-color
 
 @mixin icon-arrow-diagonal-small($color_hue)
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-arrow_diagonal-small.svg')
     display: inline-block
@@ -63,18 +71,21 @@
         @include icon-white-color
 
 @mixin icon-article-regular
+    background-repeat: no-repeat
     content: ''
     display: inline-block
     background-image: url('/icons/icon-article-regular.svg')
     @include icon-regular-size
 
 @mixin icon-book-big
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-book-big.svg')
     display: inline-block
     color: $color-text
 
 @mixin icon-bookmark-regular($color_hue)
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-bookmark-regular.svg')
     display: inline-block
@@ -87,6 +98,7 @@
         @include icon-white-color
 
 @mixin icon-bookmark-small($color_hue)
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-bookmark-small.svg')
     display: inline-block
@@ -99,6 +111,7 @@
         @include icon-white-color
 
 @mixin icon-calendar-regular($color_hue)
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-calendar-regular.svg')
     @include icon-regular-size
@@ -112,6 +125,7 @@
 
 
 @mixin icon-calendar-small($color_hue)
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-calendar-small.svg')
     display: inline-block
@@ -124,36 +138,42 @@
         @include icon-white-color
 
 @mixin icon-camera-big
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-camera-big.svg')
     display: inline-block
     color: $color-text
 
 @mixin icon-course-free-regular
+    background-repeat: no-repeat
     content: ''
     display: inline-block
     background-image: url('/icons/icon-course-free-regular.svg')
     @include icon-regular-size
 
 @mixin icon-course-payed-regular
+    background-repeat: no-repeat
     content: ''
     display: inline-block
     background-image: url('/icons/icon-course-payed-regular.svg')
     @include icon-regular-size
 
 @mixin icon-crypto-big
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-crypto-big.svg')
     display: inline-block
     color: $color-text
 
 @mixin icon-design-big
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-design-big.svg')
     display: inline-block
     color: $color-text
 
 @mixin icon-done-regular($color_hue)
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-done-regular.svg')
     display: inline-block
@@ -166,6 +186,7 @@
         @include icon-white-color
 
 @mixin icon-done-small($color_hue)
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-done-small.svg')
     display: inline-block
@@ -178,6 +199,7 @@
         @include icon-white-color
 
 @mixin icon-eye-regular($color_hue)
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-eye-regular.svg')
     display: inline-block
@@ -190,6 +212,7 @@
         @include icon-white-color
 
 @mixin icon-eye-small($color_hue)
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-eye-small.svg')
     display: inline-block
@@ -202,18 +225,21 @@
         @include icon-white-color
 
 @mixin icon-google-regular
+    background-repeat: no-repeat
     content: ''
     display: inline-block
     background-image: url('/icons/icon-google-regular.svg')
     @include icon-regular-size
 
 @mixin icon-joystick-big
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-joystick-big.svg')
     display: inline-block
     color: $color-text
 
 @mixin icon-people-regular($color_hue)
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-people-regular.svg')
     @include icon-regular-size
@@ -227,12 +253,14 @@
 
 
 @mixin icon-people-small
+    background-repeat: no-repeat
     display: inline-block
     background-image: url('/icons/icon-people-small.svg')
     @include icon-small-size
     @include icon-white-color
 
 @mixin icon-play_arrow-regular($color_hue)
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-play_arrow-regular.svg')
     display: inline-block
@@ -245,6 +273,7 @@
         @include icon-white-color
 
 @mixin icon-play_arrow-small($color_hue)
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-play_arrow-small.svg')
     display: inline-block
@@ -256,37 +285,34 @@
     @else 
         @include icon-white-color
 
-@mixin icon-search-regular($color_hue)
+@mixin icon-search-regular
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-search-regular.svg')
+    background-repeat: no-repeat
     display: inline-block
     @include icon-regular-size
-    @if $color_hue == dark
-        @include icon-dark-color
-    @else if $color_hue == green
-        @include icon-green-color
-    @else 
-        @include icon-white-color
 
-@mixin icon-search-small($color_hue)
+@mixin icon-search-small
+    background-repeat: no-repeat
     content: ''
-    background-image: url('/icons/icon-search-small.svg')
+    background-image: url('/icons/icon-search-regular.svg')
+    background-repeat: no-repeat
     display: inline-block
     @include icon-small-size
-    @if $color_hue == dark
-        @include icon-dark-color
-    @else if $color_hue == green
-        @include icon-green-color
-    @else 
-        @include icon-white-color
+    @include icon-gray-color
+
+
 
 @mixin icon-stats-big
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-stats-big.svg')
     display: inline-block
     color: $color-text
 
 @mixin icon-stats-regular($color_hue)
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-stats-regular.svg')
     display: inline-block
@@ -299,6 +325,7 @@
         @include icon-white-color
 
 @mixin icon-stats-small($color_hue)
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-stats-small.svg')
     display: inline-block
@@ -311,6 +338,7 @@
         @include icon-white-color
 
 @mixin icon-time-regular($color_hue)
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-time-regular.svg')
     display: inline-block
@@ -323,6 +351,7 @@
         @include icon-white-color
 
 @mixin icon-time-small($color_hue)
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-time-small.svg')
     display: inline-block
@@ -335,30 +364,35 @@
         @include icon-white-color
 
 @mixin icon-video_tape-big
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-video_tape-big.svg')
     display: inline-block
     color: $color-text
 
 @mixin icon-web_laptop-big
+    background-repeat: no-repeat
     content: ''
     background-image: url('/icons/icon-web_laptop-big.svg')
     display: inline-block
     color: $color-text
 
 @mixin icon-youtube-regular
+    background-repeat: no-repeat
     content: ''
     display: inline-block
     background-image: url('/icons/icon-youtube-regular.svg')
     @include icon-regular-size
 
 @mixin icon-course-payed-regular
+    background-repeat: no-repeat
     content: ''
     display: inline-block
     background-image: url('/icons/icon-course-payed-regular.svg')
     @include icon-regular-size
 
 @mixin icon-gif-bookmarked-regular
+    background-repeat: no-repeat
     content: ''
     display: inline-block
     background: url('/gifs/bookmarked_regular.gif') no-repeat center center

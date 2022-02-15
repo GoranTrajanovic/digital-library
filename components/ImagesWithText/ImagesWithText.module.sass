@@ -1,8 +1,9 @@
-.wrapper 
+.single-item-wrapper 
     width: 90%
     max-width: 965px
-    margin: 125px auto 0 auto
+    margin: 0 auto
     display: flex
+    @include regular-section-margin(margin-top)
 
     img
         max-width: none !important
@@ -16,11 +17,16 @@
         color: $color-text
 
     @include tablet()
+        margin-top: $tablet-section-margin
+
         h2
             @include font-tablet-headline-M-SemiBold
             margin-bottom: 5px
 
-.wrapper:nth-child(even)
+    @include mobile()
+        margin-top: $mobile-section-margin
+
+.single-item-wrapper:nth-child(even)
     flex-flow: row-reverse
 
     .text-wrapper
@@ -55,14 +61,15 @@ h2.heading-for-mobile
     display: none
 
 @media (max-width: 904px)
-    h2.heading-for-mobile
-        display: inline
+    .single-item-wrapper 
+        h2.heading-for-mobile
+            display: inline
 
 
-    h2:not(.heading-for-mobile)
-        display: none
+        h2:not(.heading-for-mobile)
+            display: none
 
-    .wrapper
+    .single-item-wrapper
         flex-flow: column !important
         width: 70%
         justify-content: flex-start
@@ -79,7 +86,7 @@ h2.heading-for-mobile
         display: inline
 
 @media (max-width: 500px)
-    .wrapper
+    .single-item-wrapper
         width: 90%
 
         h2

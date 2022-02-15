@@ -1,0 +1,14 @@
+.wrapper, %wrapper
+    display: inline-flex
+    gap: 35px 35px
+    
+    button 
+        text-transform: capitalize
+
+
+.wrapper-header
+    @include mobile()
+        display: none
+
+.wrapper-footer
+    @extend %wrapper

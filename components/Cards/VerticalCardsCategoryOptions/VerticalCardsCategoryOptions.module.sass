@@ -1,0 +1,47 @@
+.wrapper
+    display: flex
+    gap: 25px 25px
+    width: 470px
+    flex-wrap: wrap
+    
+.card-wrapper
+    display: inline-flex
+    width: 128px
+    height: 128px
+    flex-flow: column
+    border: 1px solid $color-text
+    @include rounded-corners
+    justify-content: center
+    align-items: center
+    word-wrap: break-word
+    text-align: center
+    transition: transform .1s ease-in-out, box-shadow .1s ease-in-out
+
+    img
+        @include icon-gray-color
+        width: 44px
+        height: 44px
+
+    .title
+        color: $color-text
+        text-transform: capitalize
+        max-width: 92px
+        margin-top: 10px
+        @include font-all-devices-body-S-SemiBold
+
+    &:hover
+        // border-color: $color-dark-emphasis
+        cursor: pointer
+        @include shadow-8dp-ambient
+        transform: translateY(-2.5px)
+
+    &.selected
+        border-color: $color-primary-lightened
+        transform: translateY(-2.5px)
+        @include shadow-8dp-ambient
+
+        img
+            @include icon-blue-color
+
+        .title
+            color: $color-primary-lightened

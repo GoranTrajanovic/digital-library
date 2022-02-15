@@ -1,0 +1,143 @@
+.wrapper
+    position: relative
+    bottom: 0
+    left: 0
+    right: 0
+    display: flex
+    background: darken($bg-color-dark, 5%)
+    justify-content: space-between
+    align-items: center
+    padding: 20px
+    @include regular-section-margin(margin-top)
+
+    @include tablet()
+        padding: 10px 60px
+
+    @media (max-width: 905px)
+        padding: 10px
+
+    .logo
+        background: url("/icons/logo_gray.svg")
+        @include size(158px, 269px)
+        position: relative
+        // top: 5px
+        // left: 5px
+        // bottom: 5px
+
+    .buttons-and-credits-wrapper
+
+        @include tablet-mobile()
+            display: inline-flex
+            flex-flow: column
+            width: 50%
+            gap: 35px
+            position: absolute
+            left: 50%
+            transform: translateX(-50%)
+
+        nav
+            position: absolute
+            left: 50%
+            top: 50%
+            transform: translate(-50%, -50%)
+            width: 45%
+            justify-content: space-around
+
+            @include tablet()
+                position: relative
+                left: auto
+                top: auto
+                transform: translate(0,0)
+                width: auto
+                justify-content: space-between
+
+
+        .credits
+            display: inline-flex
+            flex-flow: column
+            width: auto
+            text-align: center
+
+            span
+                display: inline-block
+                width: auto
+                color: $color-on-dark-background
+                line-height: 28px
+
+                @include tablet-mobile
+                    font-size: 12px
+                    line-height: 20px
+
+
+@media (max-width: 905px)
+    .wrapper .buttons-and-credits-wrapper 
+        // width: 65%
+        // justify-content: center
+        
+        nav 
+            flex-wrap: wrap
+            justify-content: center
+            gap: 20px
+            button
+                flex-basis: auto
+
+            span
+                flex-basis: 100%
+        //     button:last-of-type
+        //         flex-basis: 100% !important
+        //         width: 120px
+
+@media (max-width: 800px)
+    .wrapper .buttons-and-credits-wrapper
+        // display: inline-flex
+        width: 65%
+        // gap: 10px
+
+@media (max-width: 599px)
+    .wrapper .buttons-and-credits-wrapper
+        width: 85%
+        nav
+            position: relative
+            left: auto
+            top: auto
+            transform: translate(0,0)
+            width: auto
+        // display: inline-flex
+        // width: 100% !important
+        // gap: 10px
+
+// .wrapper
+//     position: relative
+//     bottom: 0
+//     left: 0
+//     right: 0
+//     display: flex
+//     background: darken($bg-color-dark, 5%)
+
+//     .logo
+//         background: url("/icons/logo_gray.svg")
+//         @include size(158px, 269px)
+//         position: relative
+//         top: 5px
+//         left: 5px
+//         bottom: 5px
+
+//     nav
+//         position: absolute
+//         left: 50%
+//         right: 50%
+        
+
+//     .buttons-and-credits-wrapper
+//         display: flex
+//         margin: auto 50px
+//         justify-content: space-between
+
+//         .credits
+//             display: inline-block
+//             width: 25%
+//             text-align: center
+
+//             span
+//                 display: inline-block
+//                 width: 250px

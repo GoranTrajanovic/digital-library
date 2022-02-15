@@ -30,3 +30,12 @@
 
 @mixin button-wide-padding
   padding: 32px 12px
+
+@mixin regular-section-margin($property)
+  #{$property}: $desktop-section-margin
+
+  @include tablet()
+    #{$property}: $tablet-section-margin
+  
+  @include mobile()
+    #{$property}: $mobile-section-margin

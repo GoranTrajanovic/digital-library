@@ -1,0 +1,62 @@
+.wrapper
+    position: relative
+    // height: calc(100vh - 100px)
+    display: flex
+
+
+    .wrapper-text-align
+        display: inline-flex
+        flex-flow: column
+        height: 280px
+        justify-content: center
+        gap: 25px
+        height: 100%
+        position: absolute
+        top: 0
+        left: 200px
+
+        @include tablet-mobile()
+            left: 100px
+
+
+
+    img
+        width: 100vw
+        height: calc(100vh - 100px)
+        object-fit: cover
+
+        @include tablet()
+            height: calc(100vh - 70px)
+
+    h1
+        position: relative
+        color: $color-on-dark-background
+        font-size: 46px
+        max-width: 100px
+        font-weight: 300
+        letter-spacing: 0.65px
+        margin: 0
+
+        @include mobile()
+            font-size: 36px
+
+        span
+            font-weight: 800
+
+    button
+        // position: relative
+        // z-index: 100
+
+// @include tablet()
+
+
+
+@media (max-width: 905px)
+    .wrapper
+        img
+            content: url("/home-images/hero-mobile.jpg")
+            object-position: 60%
+
+@media (max-width: 440px)
+    .wrapper .wrapper-text-align
+        left: 50px

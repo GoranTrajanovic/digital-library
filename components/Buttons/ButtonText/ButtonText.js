@@ -1,6 +1,6 @@
 import styles from "./ButtonText.module.sass";
 
-export default function ButtonText({ color, boolDarkBackground }) {
+export default function ButtonText({ children, color, boolDarkBackground }) {
 	let determinedClassName = "button";
 	determinedClassName =
 		color === "light" ? "button-light" : determinedClassName;
@@ -9,7 +9,7 @@ export default function ButtonText({ color, boolDarkBackground }) {
 		: determinedClassName;
 	return (
 		<>
-			<button className={styles[determinedClassName]}>Link</button>
+			<button className={styles[determinedClassName]}>{children}</button>
 		</>
 	);
 }

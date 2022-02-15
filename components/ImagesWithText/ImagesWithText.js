@@ -2,12 +2,16 @@ import ImageCustom from "./../ImageCustom/ImageCustom";
 import styles from "./ImagesWithText.module.sass";
 import TEXT_ARR from "./home-screen-text";
 import IMAGE_URLS from "./home-screen-images-urls.js";
+import ButtonCTA from "../Buttons/ButtonCTA/ButtonCTA";
 
 export default function ImagesWithText() {
 	return (
-		<>
+		<div className={styles.wrapper}>
 			{IMAGE_URLS.map((url, index) => (
-				<div className={styles.wrapper} key={url.slice(url.lastIndexOf("/"))}>
+				<div
+					className={styles["single-item-wrapper"]}
+					key={url.slice(url.lastIndexOf("/"))}
+				>
 					<h2 className={styles["heading-for-mobile"]}>
 						{TEXT_ARR[index].title}
 					</h2>
@@ -27,6 +31,6 @@ export default function ImagesWithText() {
 					</div>
 				</div>
 			))}
-		</>
+		</div>
 	);
 }

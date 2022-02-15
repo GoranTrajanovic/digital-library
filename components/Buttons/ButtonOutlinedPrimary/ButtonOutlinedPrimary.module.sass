@@ -6,6 +6,7 @@
     background: $bg-color
     border: 2px solid $color-dark-emphasis
     padding: 12px 16px
+    transition: background .3s ease-in-out, color .3s ease-in-out
 
 
     &:hover
@@ -37,6 +38,26 @@
         @include tablet-mobile()
             @include icon-bookmark-small($color_hue: dark)
 
+.button-symbol-right-bookmark-small
+    @extend %button
+    @extend %button-with-symbol
+    // padding-right: 40px
+    @include button-small-padding
+    width: $mobile-button-width
+    height: $mobile-button-height
+
+    @include tablet-mobile()
+        padding-left: 20px
+
+    &::after
+        @include icon-bookmark-regular($color_hue: dark)
+        position: relative !important
+        right: -5px !important
+        left: auto !important
+
+        @include tablet-mobile()
+            @include icon-bookmark-small($color_hue: dark)
+
 .button-confirmation-turn-to-green
     @extend %button
     @extend %button-with-symbol
@@ -44,6 +65,7 @@
     background: $bg-color
     border: 2px solid $color-tertiary
     justify-content: center
+    
 
     &:hover
         background: $bg-color

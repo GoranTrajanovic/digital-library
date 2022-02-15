@@ -3,12 +3,23 @@
     @include button-default-style
     @include shadow-12dp-ambient
     background: $color-gradient-pink-orange
+    background-size: 200px 1px
     color: $color-dark-emphasis
+    transition: background .3s linear, color .3s ease-in-out, transform .3s ease-out
+    display: flex
+    margin: 0 auto
+    min-width: 129px
 
     &:hover
-        background: $color-secondary
+        background-position: -50px
+        transform: translateY(-4px)
+
     &:active
         background: $color-gradient-pink-orange-emphasis
+    
+    @include tablet-mobile()
+        min-width: 122px
+
         
     @include tablet()
         @include font-button-tablet-CTA

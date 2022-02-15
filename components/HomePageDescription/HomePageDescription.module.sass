@@ -1,0 +1,62 @@
+.wrapper
+    display: flex
+    flex-flow: column
+    align-content: center
+    // width: 690px
+    // height: 128px
+    margin: auto
+    padding: 60px min(10%, 200px)
+    background: darken($bg-color-dark, 5%)
+    @include regular-section-margin(margin-top)
+
+    @include tablet-mobile
+        justify-content: space-between
+
+    @include tablet
+        padding-top: 40px
+        padding-bottom: 40px
+
+    @include mobile
+        padding-left: 0px
+        padding-right: 0px
+
+    .description-wrapper
+        display: flex
+        flex-flow: row
+        justify-content: center
+        margin-bottom: 50px
+
+        div
+            display: flex
+            flex-flow: column
+            align-items: center
+            width: 25%
+
+            @include tablet-mobile()
+                width: 33%
+
+        img
+            @include size(60px, 60px)
+            filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(105%) contrast(106%)
+
+            @include mobile()
+                @include size(45px, 45px)
+
+        .title
+            text-transform: capitalize
+            margin-top: 8px
+            color: white
+            @include font-desktop-title-S
+
+            @include mobile()
+                @include font-mobile-title-M
+
+        .line
+            display: inline-block
+            width: 1px
+            height: 100px
+            background: #d4d4d4
+            background: white
+
+            @include mobile
+                height: 75px

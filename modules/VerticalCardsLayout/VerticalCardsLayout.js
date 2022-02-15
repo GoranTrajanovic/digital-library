@@ -12,6 +12,7 @@ export default function VerticalCardsLayout({ cardDetailsArray }) {
 						imgSrc={item.imgSrc}
 						iconType={item.iconType}
 						cardDetails={item.cardDetails}
+						key={item.title}
 					/>
 				);
 			})}

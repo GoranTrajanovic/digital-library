@@ -1,4 +1,4 @@
-.card-wrapper
+.card-wrapper, %card-wrapper
     @include rounded-corners
     @include shadow-24dp-ambient
     position: relative
@@ -124,6 +124,29 @@
         left: 0
         vertical-align: middle
         margin-right: 5px
+
+.card-wrapper-small
+    @include size(185px, 185px)
+    @extend %card-wrapper
+    padding: 16px 8px
+    border: 1px solid $color-text
+    transition: transform .1s ease-in-out, box-shadow .1s ease-in-out
+    box-shadow: none
+
+    &:hover
+        @include shadow-8dp-ambient
+        transform: translateY(-2.5px)
+    
+    h3
+        @include font-desktop-label-S-SemiBold
+    
+    .mobile-card-details
+        display: inline
+
+        li
+            line-height: 20px
+            @include font-all-devices-body-M
+            
 
 @media (max-width: 905px)
     .card-wrapper
