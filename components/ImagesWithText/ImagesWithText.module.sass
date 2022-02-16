@@ -64,6 +64,7 @@ h2.heading-for-mobile
     .single-item-wrapper 
         h2.heading-for-mobile
             display: inline
+            max-width: 280px
 
 
         h2:not(.heading-for-mobile)
@@ -71,12 +72,12 @@ h2.heading-for-mobile
 
     .single-item-wrapper
         flex-flow: column !important
-        width: 70%
+        width: 50%
         justify-content: flex-start
         
 
         .text-wrapper
-            margin: 0
+            margin: auto 100px auto 0
         &:nth-child(even) 
                 
             .text-wrapper p
@@ -85,9 +86,18 @@ h2.heading-for-mobile
     .image-wrapper
         display: inline
 
-@media (max-width: 500px)
-    .single-item-wrapper
-        width: 90%
+    .single-item-wrapper:nth-child(even), .single-item-wrapper:nth-child(odd)
+        .text-wrapper
+                margin: 0
+                max-width: 280px
+
+@media (max-width: 599px)
+    .single-item-wrapper:nth-child(even), .single-item-wrapper:nth-child(odd)
+        width: 70%
+        
+        // .text-wrapper
+        //     margin: 0
+        //     max-width: 280px
 
         h2
             max-width: 60%

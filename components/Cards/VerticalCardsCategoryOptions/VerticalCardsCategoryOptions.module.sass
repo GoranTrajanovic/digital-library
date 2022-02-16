@@ -3,6 +3,8 @@
     gap: 25px 25px
     width: 470px
     flex-wrap: wrap
+    max-width: 90%
+    justify-content: center
     
 .card-wrapper
     display: inline-flex
@@ -45,3 +47,11 @@
 
         .title
             color: $color-primary-lightened
+
+@media (max-width: 440px)
+    .card-wrapper
+        @include size(100px, 100px)
+        font-size: 11px
+
+        img
+            @include size (35px, 35px)

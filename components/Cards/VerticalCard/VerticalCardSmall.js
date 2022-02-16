@@ -10,32 +10,56 @@ import styles from "./VerticalCard.module.sass";
 import useMediaQuery from "../../../hooks/useMediaQuery";
 
 export default function VerticalCardSmall({
-	type,
-	imgSrc,
+	id,
+	selected,
 	title,
 	iconType,
 	cardDetails,
+	onPress,
 }) {
-	// const BOOL_SCREEN_UNDER_WIDTH = useMediaQuery(906);
+	const [showWishlisted, setShowWishlisted] = useState(false);
 
 	const wishlistHandler = () => {
+		onPress(id);
 		setShowWishlisted(true);
 		////
 		////
-		// handle functionality (via item ID), problematic is when HorizontalCard gets turned to Vertical, cross check IDs again
+		// handle functionality (via item ID)
+	};
+
+	const wishlistCancel = () => {
+		onPress(id);
+		setShowWishlisted(false);
+		////
+		////
+		// handle functionality (via item ID)
 	};
 
 	return (
 		<div className={styles["card-wrapper-small"]}>
-			<VCTitle iconType={iconType}>{title}</VCTitle>
-			<ul className={styles["mobile-card-details"]}>
-				<li>{new Intl.NumberFormat().format(cardDetails.viewCount)}</li>
-				<li>{cardDetails.date}</li>
-			</ul>
-			<ButtonOutlinedPrimary type={"symbol-right-bookmark-small"}>
-				{" "}
-				Wishlist
+			<div className={styles["text-wrapper"]}>
+				<VCTitle iconType={iconType}>{title}</VCTitle>
+				<ul className={styles["mobile-card-details"]}>
+					<li>{new Intl.NumberFormat().format(cardDetails.viewCount)}</li>
+					<li>{cardDetails.date}</li>
+				</ul>
+			</div>
+			<ButtonOutlinedPrimary
+				type={
+					showWishlisted || selected
+						? "confirmation-turn-to-green"
+						: "symbol-right-bookmark-small"
+				}
+				onPress={wishlistHandler}
+			>
+				{showWishlisted ? "Wishlisted" : "Wishlist"}
 			</ButtonOutlinedPrimary>
+			{(showWishlisted || selected) && (
+				<button
+					className={styles["cancel-button"]}
+					onClick={wishlistCancel}
+				></button>
+			)}
 		</div>
 	);
 }

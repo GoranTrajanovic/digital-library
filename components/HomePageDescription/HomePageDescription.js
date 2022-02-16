@@ -1,7 +1,9 @@
+import { useModalStore } from "../../modules/CtaModal/ModalState";
 import ButtonCTA from "../Buttons/ButtonCTA/ButtonCTA";
 import styles from "./HomePageDescription.module.sass";
 
 export default function HomePageDescription() {
+	const toggleShow = useModalStore(s => s.toggleShow);
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles["description-wrapper"]}>
@@ -20,7 +22,7 @@ export default function HomePageDescription() {
 					<span className={styles.title}>measure</span>
 				</div>
 			</div>
-			<ButtonCTA />
+			<ButtonCTA onPress={toggleShow} />
 		</div>
 	);
 }

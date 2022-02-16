@@ -1,28 +1,32 @@
 import { useState } from "react";
-import { useModalUpdate } from "../../../modules/CtaModal/ModalContext";
+import useMediaQuery from "../../../hooks/useMediaQuery";
+import { useModalStore } from "../../../modules/CtaModal/ModalState";
 import cardItems from "./cardItems";
 import styles from "./VerticalCardsCategoryOptions.module.sass";
 
 export default function VerticalCardsCategoryOptions() {
-	const emptyArr = [-1];
-	const [selectedIndexeses, setSelectedIndexes] = useState(emptyArr);
-	const updateModal = useModalUpdate();
+	const updateCategoriesSelected = useModalStore(
+		s => s.updateCategoriesSelected
+	);
+	const categoriesSelected = useModalStore(s => s.categoriesSelected);
+	let cardItemsForRender = [];
+
+	if (useMediaQuery(905)) {
+		cardItemsForRender = cardItems.slice(0, 6);
+	} else {
+		cardItemsForRender = cardItems;
+	}
 
 	return (
 		<div className={styles.wrapper}>
-			{cardItems.map((item, index) => {
+			{cardItemsForRender.map(item => {
 				return (
 					<div
 						className={`${styles["card-wrapper"]} ${
-							styles[selectedIndexeses.includes(index) ? "selected" : ""]
+							styles[categoriesSelected.includes(item.title) ? "selected" : ""]
 						}`}
 						onClick={() => {
-							updateModal(0, item.title);
-							setSelectedIndexes(prevState => {
-								return prevState.includes(index)
-									? [...prevState.filter(i => i !== index)]
-									: [...prevState, index];
-							});
+							updateCategoriesSelected(item.title);
 						}}
 						key={item.title}
 					>

@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useModal } from "../../modules/CtaModal/ModalContext";
+import { useModalStore } from "../../modules/CtaModal/ModalState";
 import styles from "./NumberedSteps.module.sass";
 
 export default function NumberedSteps() {
-	const { currentStep } = useModal();
+	const currentStep = useModalStore(s => s.currentStep);
 
 	return (
 		<>

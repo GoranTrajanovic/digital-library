@@ -13,9 +13,8 @@ import Wishlisted from "../components/SystemConfirmations/Wishlisted/Wishlisted"
 import SearchBar from "../components/SearchBar/SearchBar";
 import NumberedSteps from "../components/NumberedSteps/NumberedSteps";
 import VerticalCardsOnCtaModal from "../components/Cards/VerticalCardsCategoryOptions/VerticalCardsCategoryOptions";
-import ModalStepOne from "../components/ModalStepOne/ModalStepOne";
 import CtaModal from "../modules/CtaModal/CtaModal";
-import { ModalProvider } from "../modules/CtaModal/ModalContext";
+import { ModalProvider } from "../modules/CtaModal/ModalState";
 import Header from "../modules/Header/Header";
 import Hero from "../modules/Hero/Hero";
 import HomePageDescription from "../components/HomePageDescription/HomePageDescription";
@@ -30,6 +29,7 @@ export default function Home() {
 			<ImagesWithText />
 			<HomePageDescription />
 			<HorizontalCardsLayout cardDetailsArray={dummyContent2} />
+			<CtaModal />
 		</div>
 	);
 }

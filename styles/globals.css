@@ -18,7 +18,8 @@ body {
 }
 
 body {
-	overflow-x: hidden;
+	overflow-x: hidden !important;
+	width: 100%;
 }
 
 input:focus {
@@ -34,3 +35,10 @@ a {
 * {
 	box-sizing: border-box;
 }
+
+/* @media screen and (min-width: 960px) {
+	html {
+		margin-left: calc(100vw - 100%);
+		margin-right: 0;
+	}
+} */

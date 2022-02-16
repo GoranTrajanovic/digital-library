@@ -1,8 +1,7 @@
 import Head from "next/head";
+import React from "react";
 import Layout from "../modules/Layout/Layout";
 import "../styles/globals.css";
-
-const ModalShowContext = React.createContext(false);
 
 function MyApp({ Component, pageProps }) {
 	return (
@@ -11,11 +10,9 @@ function MyApp({ Component, pageProps }) {
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 				<title>Digital Library</title>
 			</Head>
-			<ModalShowContext.Provider value={false}>
-				<Layout>
-					<Component {...pageProps} />
-				</Layout>
-			</ModalShowContext.Provider>
+			<Layout>
+				<Component {...pageProps} />
+			</Layout>
 		</>
 	);
 }
