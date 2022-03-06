@@ -1,4 +1,4 @@
-import { useModalStore } from "./ModalState";
+import { useModalStore } from "../../stores/useModalStore/useModalStore";
 import VerticalCardsCategoryOptions from "../../components/Cards/VerticalCardsCategoryOptions/VerticalCardsCategoryOptions";
 import VerticalCardArticleOptions from "../../components/Cards/VerticalCardsArticleOptions/VerticalCardsArticleOptions";
 import NumberedSteps from "../../components/NumberedSteps/NumberedSteps";

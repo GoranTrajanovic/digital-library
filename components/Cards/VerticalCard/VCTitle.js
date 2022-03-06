@@ -2,6 +2,7 @@ import ImageCustom from "../../ImageCustom/ImageCustom";
 import styles from "./VCTitle.module.sass";
 
 export default function VCTitle({ children, iconType, cardIsHovered }) {
+	console.log("reundered with icontype of " + iconType);
 	return (
 		<>
 			<div

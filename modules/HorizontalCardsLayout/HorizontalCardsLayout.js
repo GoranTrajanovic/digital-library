@@ -17,14 +17,14 @@ export default function HorizontalCardsLayout({ cardDetailsArray }) {
 								title={cardDetail.title}
 								imgSrc={cardDetail.imgSrc}
 								cardDetails={cardDetail.detailsList}
-								key={Math.random()}
+								key={cardDetail.title}
 							/>
 						) : (
 							<HorizontalCard
 								title={cardDetail.title}
 								imgSrc={cardDetail.imgSrc}
 								detailsList={cardDetail.detailsList}
-								key={Math.random()}
+								key={cardDetail.title}
 							/>
 						)}
 					</>

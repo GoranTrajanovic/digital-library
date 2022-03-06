@@ -13,12 +13,19 @@ export default function MobileMenu({ navigationLinks }) {
 	const backdropClickHandler = () => {
 		setSideDrawerOpen(s => false);
 	};
+	const linkClickHandler = () => {
+		setSideDrawerOpen(s => false);
+	};
 
 	return (
 		<>
 			<DrawerToggleButton click={drawerClickHandler} active={sideDrawerOpen} />
 			{sideDrawerOpen && <Backdrop click={backdropClickHandler} />}
-			<SideDrawer show={sideDrawerOpen} navigationLinks={navigationLinks} />
+			<SideDrawer
+				show={sideDrawerOpen}
+				navigationLinks={navigationLinks}
+				linkClickHandler={linkClickHandler}
+			/>
 		</>
 	);
 }

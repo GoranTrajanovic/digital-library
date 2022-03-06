@@ -14,8 +14,8 @@ export default function VerticalCardOverlay({ cardIsHovered, cardDetails }) {
 						<span> {cardDetails.category}</span>
 					</li>
 					<li>
-						Subategory:
-						<span> {cardDetails.subcategory}</span>
+						Publisher:
+						<span> {cardDetails.publisher}</span>
 					</li>
 				</ul>
 			</div>

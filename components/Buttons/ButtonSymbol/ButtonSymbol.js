@@ -6,7 +6,7 @@ export default function ButtonSymbol({ showWishlisted, onPress }) {
 		<>
 			<button
 				className={`${styles.button} ${
-					styles[showWishlisted ? "wishlisteeeed" : ""]
+					styles[showWishlisted ? "wishlisted" : ""]
 				}`}
 				onClick={onPress}
 			></button>

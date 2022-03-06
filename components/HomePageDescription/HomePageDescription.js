@@ -1,4 +1,4 @@
-import { useModalStore } from "../../modules/CtaModal/ModalState";
+import { useModalStore } from "../../stores/useModalStore/useModalStore";
 import ButtonCTA from "../Buttons/ButtonCTA/ButtonCTA";
 import styles from "./HomePageDescription.module.sass";
 

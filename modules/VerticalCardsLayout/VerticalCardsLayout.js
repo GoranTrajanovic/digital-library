@@ -1,17 +1,23 @@
 import VerticalCard from "../../components/Cards/VerticalCard/VerticalCard";
 import styles from "./VerticalCardsLayout.module.sass";
 
-export default function VerticalCardsLayout({ cardDetailsArray }) {
+export default function VerticalCardsLayout({ itemsForView }) {
+	console.dir(itemsForView);
+	console.log("Logging from VerticalCardsLayout, object is ");
 	return (
 		<div className={styles.layout}>
-			{cardDetailsArray.map(item => {
+			{itemsForView.map(item => {
 				return (
 					<VerticalCard
 						type={item.type}
-						title={item.title}
 						imgSrc={item.imgSrc}
+						title={item.title}
 						iconType={item.iconType}
-						cardDetails={item.cardDetails}
+						urlLink={item.urlLink}
+						viewCount={item.viewCount}
+						date={item.viewCount}
+						category={item.category}
+						publisher={item.publisher}
 						key={item.title}
 					/>
 				);

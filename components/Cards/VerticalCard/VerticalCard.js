@@ -8,23 +8,43 @@ import ButtonContainedPrimary from "../../Buttons/ButtonContainedPrimary/ButtonC
 import ButtonSymbol from "../../Buttons/ButtonSymbol/ButtonSymbol";
 import styles from "./VerticalCard.module.sass";
 import useMediaQuery from "../../../hooks/useMediaQuery";
+import { Image } from "next/image";
 
 export default function VerticalCard({
 	type,
 	imgSrc,
 	title,
 	iconType,
-	cardDetails,
+	viewCount,
+	date,
+	category,
+	publisher,
+	urlLink,
 }) {
 	const [cardIsHovered, setCardIsHovered] = useState(false);
 	const [showWishlisted, setShowWishlisted] = useState(false);
 	const BOOL_SCREEN_UNDER_WIDTH = useMediaQuery(906);
 
+	console.log("From VerticalCard iconType is " + iconType);
+
 	const wishlistHandler = () => {
-		setShowWishlisted(true);
+		setShowWishlisted(prevState => !prevState);
 		////
 		////
 		// handle functionality (via item ID), problematic is when HorizontalCard gets turned to Vertical, cross check IDs again
+	};
+
+	const cardDetails = {
+		date,
+		category,
+		publisher,
+		viewCount,
+	};
+
+	const startButtonHandler = () => {
+		console.log("about to open" + urlLink);
+		window.open(urlLink, "_newtab");
+		type = "resume";
 	};
 
 	if (type === "read-more") {
@@ -32,7 +52,12 @@ export default function VerticalCard({
 			<>
 				<div className={`${styles["card-wrapper"]}`}>
 					<VCTitle>{title}</VCTitle>
-					<ImageCustom src={imgSrc} alt={title} width={200} height={150} />
+					<ImageCustom
+						src={"/card-images/design.png"}
+						alt={title}
+						width={200}
+						height={120}
+					/>
 					<span>includes:</span>
 					<VCList cardDetails={cardDetails} />
 					<div
@@ -89,7 +114,10 @@ export default function VerticalCard({
 					showWishlisted={showWishlisted}
 					onPress={wishlistHandler}
 				/> */}
-				<ButtonContainedPrimary type={`symbol-right-${ACTION}`}>
+				<ButtonContainedPrimary
+					type={`symbol-right-${ACTION}`}
+					onPress={startButtonHandler}
+				>
 					{ACTION}
 				</ButtonContainedPrimary>
 			</div>
@@ -113,7 +141,7 @@ export default function VerticalCard({
 						src={imgSrc}
 						alt={title}
 						width={BOOL_SCREEN_UNDER_WIDTH ? 150 : 200}
-						height={BOOL_SCREEN_UNDER_WIDTH ? 100 : 150}
+						height={BOOL_SCREEN_UNDER_WIDTH ? 90 : 120}
 					/>
 					{/* <img src={imgSrc} alt={title} /> */}
 					<ul className={styles["mobile-card-details"]}>

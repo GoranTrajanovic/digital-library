@@ -1,6 +1,6 @@
 import { useState } from "react";
 import useMediaQuery from "../../../hooks/useMediaQuery";
-import { useModalStore } from "../../../modules/CtaModal/ModalState";
+import { useModalStore } from "../../../stores/useModalStore/useModalStore";
 import cardItems from "./cardItems";
 import styles from "./VerticalCardsCategoryOptions.module.sass";
 

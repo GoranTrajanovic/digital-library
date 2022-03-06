@@ -9,6 +9,7 @@ export default function ImageCustom({
 	placeholder,
 	priority,
 	layout,
+	children,
 }) {
 	return (
 		<div className={styles["image-wrapper"]}>
@@ -21,6 +22,7 @@ export default function ImageCustom({
 				priority={priority}
 				layout={layout}
 			/>
+			{children}
 		</div>
 	);
 }

@@ -6,7 +6,7 @@ export const useModalStore = create(
 		boolModalShow: false,
 		currentStep: 1,
 		categoriesSelected: [],
-		articlesWishlisted: [],
+		itemsWishlisted: [],
 		customUsername: "",
 		decreaseStep: () => set(state => ({ currentStep: state.currentStep - 1 })),
 		increaseStep: () => set(state => ({ currentStep: state.currentStep + 1 })),
@@ -17,18 +17,18 @@ export const useModalStore = create(
 					? [...state.categoriesSelected.filter(c => c !== selectedCategory)]
 					: [...state.categoriesSelected, selectedCategory],
 			})),
-		updateArticlesWishlisted: selectedArticle =>
+		updateItemsWishlisted: selectedArticle =>
 			set(state => ({
-				articlesWishlisted: state.articlesWishlisted.includes(selectedArticle)
-					? [...state.articlesWishlisted.filter(c => c !== selectedArticle)]
-					: [...state.articlesWishlisted, selectedArticle],
+				itemsWishlisted: state.itemsWishlisted.includes(selectedArticle)
+					? [...state.itemsWishlisted.filter(c => c !== selectedArticle)]
+					: [...state.itemsWishlisted, selectedArticle],
 			})),
 	}))
 );
 
 // export function ModalProvider({ children }) {
 // 	return (
-// 		<ModalContext.Provider value={modalState}>
+// 		<ModalContext.Provider value={useModalStore}>
 // 			<ModalUpdateContext.Provider value={updateModalInfo}>
 // 				{children}
 // 			</ModalUpdateContext.Provider>

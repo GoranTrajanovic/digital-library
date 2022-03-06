@@ -2,7 +2,7 @@ import { useContext } from "react";
 import ButtonCTA from "../../components/Buttons/ButtonCTA/ButtonCTA";
 import styles from "./Hero.module.sass";
 import { ModalShowContext } from "../Layout/Layout";
-import { useModalStore } from "../CtaModal/ModalState";
+import { useModalStore } from "../../stores/useModalStore/useModalStore";
 
 export default function Hero() {
 	const { showModal, setShowModal } = useContext(ModalShowContext);

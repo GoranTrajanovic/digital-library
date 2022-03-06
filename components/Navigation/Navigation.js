@@ -1,4 +1,5 @@
-import { useModalStore } from "../../modules/CtaModal/ModalState";
+import Link from "next/link";
+import { useModalStore } from "../../stores/useModalStore/useModalStore";
 import ButtonCTA from "../Buttons/ButtonCTA/ButtonCTA";
 import ButtonText from "../Buttons/ButtonText/ButtonText";
 import MobileMenu from "./MobileMenu/MobileMenu";
@@ -15,7 +16,7 @@ export default function Navigation({ type, buttonTextColor }) {
 				{NAVIGATION_LINKS.map(link => {
 					return (
 						<ButtonText key={link} color={buttonTextColor}>
-							{link}
+							<Link href={`/${link}`}>{link}</Link>
 						</ButtonText>
 					);
 				})}

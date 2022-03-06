@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useModalStore } from "../../modules/CtaModal/ModalState";
+import { useModalStore } from "../../stores/useModalStore/useModalStore";
 import styles from "./NumberedSteps.module.sass";
 
 export default function NumberedSteps() {
