@@ -13,8 +13,9 @@ export default function VerticalCardsLayout({ itemsForView }) {
 						iconType={item.iconType}
 						urlLink={item.urlLink}
 						viewCount={item.viewCount}
-						date={item.viewCount}
+						date={item.date}
 						category={item.category}
+						subCategory={item.subCategory}
 						publisher={item.publisher}
 						key={item.title}
 					/>

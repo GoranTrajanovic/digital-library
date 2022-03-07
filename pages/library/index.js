@@ -58,17 +58,20 @@ export default function Library({ items }) {
 		// console.dir(fetchedItems);
 
 		if (Object.keys(fetchedItems[0]).length) {
-			tempItemsArray = fetchedItems.map((item, i) => ({
-				type: "start",
-				title: item.fields.title,
-				iconType: item.fields.iconType,
-				urlLink: item.fields.urlLink,
-				imgSrc: "https:" + item.fields.image.fields.file.url,
-				viewCount: item.fields.viewCount,
-				date: item.fields.datePublished.substr(0, 10),
-				category: item.fields.category,
-				publisher: item.fields.publisher,
-			}));
+			tempItemsArray = fetchedItems.map((item, i) => {
+				return {
+					type: "start",
+					title: item.fields.title,
+					iconType: item.fields.iconType,
+					urlLink: item.fields.urlLink,
+					imgSrc: "https:" + item.fields.image.fields.file.url,
+					viewCount: item.fields.viewCount,
+					date: item.fields.datePublished.substr(0, 10),
+					category: item.fields.category,
+					subCategory: item.fields.subCategory,
+					publisher: item.fields.publisher,
+				};
+			});
 			setAllItems(tempItemsArray);
 		}
 	}, []);

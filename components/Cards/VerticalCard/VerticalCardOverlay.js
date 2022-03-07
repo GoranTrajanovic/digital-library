@@ -10,8 +10,8 @@ export default function VerticalCardOverlay({ cardIsHovered, cardDetails }) {
 					<li>{new Intl.NumberFormat().format(cardDetails.viewCount)}</li>
 					<li>{cardDetails.date}</li>
 					<li>
-						Category:
-						<span> {cardDetails.category}</span>
+						Subcategory:
+						<span> {cardDetails.subCategory}</span>
 					</li>
 					<li>
 						Publisher:

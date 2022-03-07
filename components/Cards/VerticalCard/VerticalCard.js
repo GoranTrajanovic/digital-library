@@ -17,6 +17,7 @@ export default function VerticalCard({
 	viewCount,
 	date,
 	category,
+	subCategory,
 	publisher,
 	urlLink,
 }) {
@@ -33,6 +34,7 @@ export default function VerticalCard({
 	const cardDetails = {
 		date,
 		category,
+		subCategory,
 		publisher,
 		viewCount,
 	};

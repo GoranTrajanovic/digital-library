@@ -32,8 +32,9 @@ export const useLibraryStore = create(
 					iconType: "course-free",
 					cardDetails: {
 						viewCount: 120000,
-						date: "April 23, 2021",
+						date: "2021-05-19",
 						category: "Programming",
+						subCategory: "Programming",
 						publisher: "Travery Media",
 					},
 				},
