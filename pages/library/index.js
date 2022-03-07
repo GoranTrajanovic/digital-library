@@ -21,18 +21,7 @@ export default function Library({ items }) {
 	);
 	const allItems = useLibraryStore(s => s.allItems);
 	const setAllItems = useLibraryStore(s => s.setAllItems);
-	// let tempItemsArray = [
-	// 	{
-	// 		type: "start",
-	// 		title: "Learn MERN Stack in 2022",
-	// 		imgSrc: "/card-images/design.png",
-	// 		iconType: "course-free",
-	// 		viewCount: 120000,
-	// 		date: "April 23, 2021",
-	// 		category: "Programming",
-	// 		publisher: "Travery Media",
-	// 	},
-	// ];
+
 	let tempItemsArray = [];
 	const IS_MOBILE = useMediaQuery(599);
 	const imgAttributes = {
@@ -49,6 +38,7 @@ export default function Library({ items }) {
 
 	const [searchValue, setSearchValue] = useState("");
 	const [allItemsInCategory, setAllItemsInCategory] = useState([]);
+	const [featuredItemsArray, setFeaturedItemsArray] = useState([]);
 	const searchHandler = e => {
 		let lowerCase = e.target.value.toLowerCase();
 		setSearchValue(() => lowerCase);
@@ -56,6 +46,7 @@ export default function Library({ items }) {
 
 	useEffect(() => {
 		// console.dir(fetchedItems);
+		console.log("LIBRARY GENERATED");
 
 		if (Object.keys(fetchedItems[0]).length) {
 			tempItemsArray = fetchedItems.map((item, i) => {
@@ -70,37 +61,24 @@ export default function Library({ items }) {
 					category: item.fields.category,
 					subCategory: item.fields.subCategory,
 					publisher: item.fields.publisher,
+					featured: item.fields.featured,
 				};
 			});
 			setAllItems(tempItemsArray);
+
+			tempItemsArray = tempItemsArray.filter(item => {
+				return Boolean(item.featured);
+			});
+			setFeaturedItemsArray(tempItemsArray);
 		}
 	}, []);
 
 	// console.log(chosenCategoryForFilter);
 
 	useEffect(() => {
-		tempItemsArray = allItems.filter(item => {
-			// console.log(item);
-			// console.log(
-			// 	"comparing: " +
-			// 		item.category.toLowerCase() +
-			// 		" and " +
-			// 		chosenCategoryForFilter.title.toLowerCase()
-			// );
-			return (
-				item.category.toLowerCase() ===
-				chosenCategoryForFilter.title.toLowerCase()
-			);
-		});
-		setAllItemsInCategory(tempItemsArray);
-		setItemsForView(tempItemsArray);
-	}, [chosenCategoryForFilter]);
-
-	useEffect(() => {
 		if (searchValue === "") {
-			// let lastItems = allItemsInCategory;
-			// console.log("obj table:");
-			// console.table(allItemsInCategory);
+			console.log("also-fired");
+			console.dir(allItemsInCategory);
 			setItemsForView(allItemsInCategory);
 		} else {
 			tempItemsArray = allItemsInCategory.filter(item => {
@@ -114,27 +92,26 @@ export default function Library({ items }) {
 		}
 	}, [searchValue]);
 
-	// setItemsForView(allItems);
-	// console.dir(tempItemsArray);
-
-	// const testObject = {
-	// 	viewCount: 120000,
-	// 	date: "April 23, 2021",
-	// 	category: "Programming",
-	// 	subcategory: "Algorithms",
-	// };
-
-	// constObj = [
-	// 	{
-	// 		type: "resume",
-	// 		title: "design",
-	// 		imgSrc: "/card-images/design.png",
-	// 		iconType: "youtube",
-	// 	: testObject,
-	// 	},
-
-	// console.dir(chosenCategoryForFilter);
-	// console.log("Thats what we got from setChosenCategoryForFilter");
+	useEffect(() => {
+		const chosenCategory = chosenCategoryForFilter.title.toLowerCase();
+		console.table(chosenCategoryForFilter);
+		if (chosenCategory === "featured") {
+			setAllItemsInCategory(featuredItemsArray);
+			setItemsForView(featuredItemsArray);
+		} else if (chosenCategory === "show all") {
+			setAllItemsInCategory(allItems);
+			setItemsForView(allItems);
+		} else {
+			tempItemsArray = allItems.filter(item => {
+				return (
+					item.category.toLowerCase() ===
+					chosenCategoryForFilter.title.toLowerCase()
+				);
+			});
+			setAllItemsInCategory(tempItemsArray);
+			setItemsForView(tempItemsArray);
+		}
+	}, [chosenCategoryForFilter, featuredItemsArray]);
 
 	return (
 		<div className={styles.wrapper}>
