@@ -1,6 +1,7 @@
+import { useState } from "react";
 import styles from "./SearchBar.module.sass";
 
-export default function SearchBar() {
+export default function SearchBar({ searchValue, searchHandler }) {
 	return (
 		<>
 			<div className={styles.content}>
@@ -9,6 +10,8 @@ export default function SearchBar() {
 					<input
 						className={styles["search-bar"]}
 						placeholder="e.g. youtube, design, web, python..."
+						onChange={searchHandler}
+						value={searchValue}
 					></input>
 				</div>
 			</div>

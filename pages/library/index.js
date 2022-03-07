@@ -1,14 +1,14 @@
+import { useEffect, useState } from "react";
+import { createClient } from "contentful";
+import { useItemsStore } from "../../stores/useItemsStore/useItemsStore";
 import { useLibraryStore } from "../../stores/useLibraryStore/useLibraryStore";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import ImageCustom from "../../components/ImageCustom/ImageCustom";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import CategorySelectionButtons from "../../components/CategorySelectionButtons/CategorySelectionButtons";
 import Title from "../../components/Title/Title";
-import styles from "./Library.module.sass";
 import VerticalCardsLayout from "../../modules/VerticalCardsLayout/VerticalCardsLayout";
-import { createClient } from "contentful";
-import { useItemsStore } from "../../stores/useItemsStore/useItemsStore";
-import { useEffect } from "react";
+import styles from "./Library.module.sass";
 
 export default function Library({ items }) {
 	const chosenCategoryForFilter = useLibraryStore(
@@ -21,18 +21,19 @@ export default function Library({ items }) {
 	);
 	const allItems = useLibraryStore(s => s.allItems);
 	const setAllItems = useLibraryStore(s => s.setAllItems);
-	let tempItemsArray = [
-		{
-			type: "start",
-			title: "Learn MERN Stack in 2022",
-			imgSrc: "/card-images/design.png",
-			iconType: "course-free",
-			viewCount: 120000,
-			date: "April 23, 2021",
-			category: "Programming",
-			publisher: "Travery Media",
-		},
-	];
+	// let tempItemsArray = [
+	// 	{
+	// 		type: "start",
+	// 		title: "Learn MERN Stack in 2022",
+	// 		imgSrc: "/card-images/design.png",
+	// 		iconType: "course-free",
+	// 		viewCount: 120000,
+	// 		date: "April 23, 2021",
+	// 		category: "Programming",
+	// 		publisher: "Travery Media",
+	// 	},
+	// ];
+	let tempItemsArray = [];
 	const IS_MOBILE = useMediaQuery(599);
 	const imgAttributes = {
 		src: IS_MOBILE
@@ -45,6 +46,13 @@ export default function Library({ items }) {
 	const fetchedItems = useItemsStore(s => s.fetchedItems);
 	const fetchItemsFromServer = useItemsStore(s => s.fetchItemsFromServer);
 	fetchItemsFromServer(items);
+
+	const [searchValue, setSearchValue] = useState("");
+	const [allItemsInCategory, setAllItemsInCategory] = useState([]);
+	const searchHandler = e => {
+		let lowerCase = e.target.value.toLowerCase();
+		setSearchValue(() => lowerCase);
+	};
 
 	useEffect(() => {
 		// console.dir(fetchedItems);
@@ -70,22 +78,39 @@ export default function Library({ items }) {
 	useEffect(() => {
 		tempItemsArray = allItems.filter(item => {
 			// console.log(item);
-			console.log(
-				"comparing: " +
-					item.category.toLowerCase() +
-					" and " +
-					chosenCategoryForFilter.title.toLowerCase()
-			);
+			// console.log(
+			// 	"comparing: " +
+			// 		item.category.toLowerCase() +
+			// 		" and " +
+			// 		chosenCategoryForFilter.title.toLowerCase()
+			// );
 			return (
 				item.category.toLowerCase() ===
 				chosenCategoryForFilter.title.toLowerCase()
 			);
 		});
+		setAllItemsInCategory(tempItemsArray);
 		setItemsForView(tempItemsArray);
-
-		console.dir(allItems);
-		console.log("useEffect finished with:");
 	}, [chosenCategoryForFilter]);
+
+	useEffect(() => {
+		if (searchValue === "") {
+			// let lastItems = allItemsInCategory;
+			// console.log("obj table:");
+			// console.table(allItemsInCategory);
+			setItemsForView(allItemsInCategory);
+		} else {
+			tempItemsArray = allItemsInCategory.filter(item => {
+				return (
+					item.title.toLowerCase().includes(searchValue) ||
+					item.iconType.toLowerCase().includes(searchValue) ||
+					item.publisher.toLowerCase().includes(searchValue)
+				);
+			});
+			setItemsForView(tempItemsArray);
+		}
+	}, [searchValue]);
+
 	// setItemsForView(allItems);
 	// console.dir(tempItemsArray);
 
@@ -119,7 +144,7 @@ export default function Library({ items }) {
 				<h1>Library</h1>
 			</ImageCustom>
 			<div className={styles["section-group-wrapper"]}>
-				<SearchBar />
+				<SearchBar searchValue={searchValue} searchHandler={searchHandler} />
 				<CategorySelectionButtons />
 				<Title>{chosenCategoryForFilter.title}</Title>
 				<div className={styles.description}>

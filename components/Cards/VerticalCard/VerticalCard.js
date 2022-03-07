@@ -8,7 +8,6 @@ import ButtonContainedPrimary from "../../Buttons/ButtonContainedPrimary/ButtonC
 import ButtonSymbol from "../../Buttons/ButtonSymbol/ButtonSymbol";
 import styles from "./VerticalCard.module.sass";
 import useMediaQuery from "../../../hooks/useMediaQuery";
-import { Image } from "next/image";
 
 export default function VerticalCard({
 	type,
@@ -24,9 +23,6 @@ export default function VerticalCard({
 	const [cardIsHovered, setCardIsHovered] = useState(false);
 	const [showWishlisted, setShowWishlisted] = useState(false);
 	const BOOL_SCREEN_UNDER_WIDTH = useMediaQuery(906);
-
-	console.log("From VerticalCard iconType is " + iconType);
-
 	const wishlistHandler = () => {
 		setShowWishlisted(prevState => !prevState);
 		////

@@ -1,4 +1,5 @@
 const categories = [
+	{ title: "Show All", description: "", descriptionSource: "" },
 	{ title: "Featured", description: "", descriptionSource: "" },
 	{
 		title: "Design",
