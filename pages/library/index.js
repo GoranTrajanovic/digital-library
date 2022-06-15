@@ -75,26 +75,29 @@ export default function Library({ items }) {
 		}
 	}, []);
 
-	useEffect(() => {
-		if (searchValue === "") {
-			console.log("also-fired");
-			console.dir(allItemsInCategory);
-			setItemsForView(allItemsInCategory);
-		} else {
-			tempItemsArray = allItemsInCategory.filter(item => {
-				return (
-					item.title.toLowerCase().includes(searchValue) ||
-					item.iconType.toLowerCase().includes(searchValue) ||
-					item.publisher.toLowerCase().includes(searchValue)
-				);
-			});
-			setItemsForView(tempItemsArray);
-		}
-	}, [searchValue]);
+	// useEffect(() => {
+	// 	if (searchValue === "") {
+	// 		console.log("also-fired");
+	// 		console.dir(allItemsInCategory);
+	// 		setItemsForView(allItemsInCategory);
+	// 	} else {
+	// 		tempItemsArray = allItemsInCategory.filter(item => {
+	// 			return (
+	// 				item.title.toLowerCase().includes(searchValue) ||
+	// 				item.iconType.toLowerCase().includes(searchValue) ||
+	// 				item.publisher.toLowerCase().includes(searchValue)
+	// 			);
+	// 		});
+	// 		setItemsForView(tempItemsArray);
+	// 	}
+	// }, [searchValue]);
 
 	useEffect(() => {
 		const chosenCategory = chosenCategoryForFilter.title.toLowerCase();
 		// console.table(chosenCategoryForFilter);
+		console.log("Chosen category:");
+		console.log(chosenCategory);
+
 		if (chosenCategory === "featured") {
 			setAllItemsInCategory(featuredItemsArray);
 			setItemsForView(featuredItemsArray);
