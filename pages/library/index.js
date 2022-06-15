@@ -113,6 +113,9 @@ export default function Library({ items }) {
 		}
 	}, [chosenCategoryForFilter, featuredItemsArray]);
 
+	console.log("ItemsToShow:");
+	console.table(itemsForView);
+
 	return (
 		<div className={styles.wrapper}>
 			<ImageCustom
