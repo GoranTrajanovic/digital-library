@@ -1,13 +1,13 @@
+import { useEffect } from "react";
 import { useModalStore } from "../../stores/useModalStore/useModalStore";
+import { useDelayUnmount } from "../../hooks/useDelayUnmount";
+import { useSession, signIn } from "next-auth/react";
 import VerticalCardsCategoryOptions from "../../components/Cards/VerticalCardsCategoryOptions/VerticalCardsCategoryOptions";
 import VerticalCardArticleOptions from "../../components/Cards/VerticalCardsArticleOptions/VerticalCardsArticleOptions";
 import NumberedSteps from "../../components/NumberedSteps/NumberedSteps";
-import styles from "./CtaModal.module.sass";
 import ButtonContainedPrimary from "../../components/Buttons/ButtonContainedPrimary/ButtonContainedPrimary";
 import SignInForm from "../../components/SignInForm/SignInForm";
-import { useState, useEffect } from "react";
-import { useDelayUnmount } from "../../hooks/useDelayUnmount";
-import useSwipe from "../../hooks/useSwipe";
+import styles from "./CtaModal.module.sass";
 
 export default function CtaModal() {
 	const boolModalShow = useModalStore(s => s.boolModalShow);
@@ -20,10 +20,7 @@ export default function CtaModal() {
 		s => s.updateCategoriesSelected
 	);
 	const shouldRenderModal = useDelayUnmount(boolModalShow, 400);
-	// const [handleTouchStart, handleTouchMove, handleTouchEnd] = useSwipe(
-	// 	increaseStep,
-	// 	decreaseStep
-	// );
+	const { data: session } = useSession();
 
 	let modalTitle = "";
 	let itemsForRender;
@@ -44,29 +41,6 @@ export default function CtaModal() {
 		styles[boolModalShow ? "wrapper" : "wrapper-slide-out"]
 	}`;
 
-	// const [touchStart, setTouchStart] = useState(0);
-	// const [touchEnd, setTouchEnd] = useState(0);
-
-	// function handleTouchStart(e) {
-	// 	setTouchStart(e.targetTouches[0].clientX);
-	// }
-
-	// function handleTouchMove(e) {
-	// 	setTouchEnd(e.targetTouches[0].clientX);
-	// }
-
-	// function handleTouchEnd() {
-	// 	if (touchStart - touchEnd > 75) {
-	// 		// do your stuff here for left swipe
-	// 		increaseStep();
-	// 	}
-
-	// 	if (touchStart - touchEnd < -75) {
-	// 		// do your stuff here for right swipe
-	// 		decreaseStep();
-	// 	}
-	// }
-
 	if (currentStep <= 1) {
 		modalTitle = "Select your interest:";
 		itemsForRender = <VerticalCardsCategoryOptions />;
@@ -75,11 +49,15 @@ export default function CtaModal() {
 		itemsForRender = <VerticalCardArticleOptions />;
 	} else if (currentStep >= 3) {
 		modalTitle = "Sign In:";
-		itemsForRender = (
-			<div className={styles["sign-in"]}>
-				<SignInForm />
-			</div>
-		);
+		if (session) {
+			itemsForRender = <div>Hello there {session.user.name}!</div>;
+		} else {
+			itemsForRender = (
+				<div className={styles["sign-in"]}>
+					<SignInForm signIn={signIn} />
+				</div>
+			);
+		}
 	}
 
 	useEffect(() => {
@@ -87,17 +65,7 @@ export default function CtaModal() {
 		const htmlElement = document.documentElement;
 		const scrollbarElement = document.createElement("div");
 		const oldScrollbarElement = document.getElementById("scrollbar");
-		// const scrollbarWidth =
-		// 	window.innerWidth - document.documentElement.clientWidth;
-		// console.log(scrollbarWidth);
-		// htmlElement.style.marginRight = boolModalShow
-		// 	? scrollbarWidth.toString()
-		// 	: 5;
-		// htmlElement.style.overflow = "auto";
-		// htmlElement.style.marginRight = "10";
 		bodyElement.style.overflowY = boolModalShow ? "hidden" : "auto";
-		// htmlElement.classList.remove("scrollbar-fix");
-		// boolModalShow && htmlElement.classList.add("scrollbar-fix");
 		oldScrollbarElement &&
 			oldScrollbarElement.parentElement.removeChild(oldScrollbarElement);
 		scrollbarElement.id = "scrollbar";
@@ -106,11 +74,6 @@ export default function CtaModal() {
 		scrollbarElement.style.bottom = 0;
 		scrollbarElement.style.position = "fixed";
 		scrollbarElement.style.overflowY = "scroll";
-		// boolModalShow && bodyElement.appendChild(scrollbarElement);
-		// htmlElement.style.marginRight = boolModalShow ? "calc(100vw - 100%)" : 0;
-		// return () => {
-		// 	setTimeout(() => {}, 2000);
-		// };
 	}, [boolModalShow]);
 
 	return (

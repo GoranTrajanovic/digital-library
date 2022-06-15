@@ -39,6 +39,12 @@ export default function VerticalCard({
 		viewCount,
 	};
 
+	const detailsList = [
+		"5 Top-rated YouTube channels",
+		"3 Top-rated blogs",
+		"Various other resources",
+	];
+
 	const startButtonHandler = () => {
 		console.log("about to open" + urlLink);
 		window.open(urlLink, "_newtab");
@@ -57,7 +63,7 @@ export default function VerticalCard({
 						height={120}
 					/>
 					<span>includes:</span>
-					<VCList cardDetails={cardDetails} />
+					<VCList cardDetails={detailsList} />
 					<div
 						className={`${styles["buttons-wrapper"]}  ${styles["flex-column"]}`}
 					>
