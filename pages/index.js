@@ -17,18 +17,17 @@ import Header from "../modules/Header/Header";
 import Hero from "../modules/Hero/Hero";
 import HomePageDescription from "../components/HomePageDescription/HomePageDescription";
 import ButtonContainedPrimary from "../components/Buttons/ButtonContainedPrimary/ButtonContainedPrimary";
-import styles from "./Home.module.sass";
 import Footer from "../modules/Footer/Footer";
 import { useItemStores } from "../stores/useItemsStore/useItemsStore";
 
 export default function Home() {
 	return (
-		<div className={styles.wrapper}>
+		<>
 			<Hero />
 			<ImagesWithText />
 			<HomePageDescription />
 			<HorizontalCardsLayout cardDetailsArray={dummyContent2} />
 			<CtaModal />
-		</div>
+		</>
 	);
 }
