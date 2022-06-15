@@ -1,4 +1,4 @@
-import Link from "next/Link";
+import Link from "next/link";
 import Navigation from "../../components/Navigation/Navigation";
 import styles from "./Header.module.sass";
 
