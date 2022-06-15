@@ -7,4 +7,7 @@ module.exports = {
 		prependData: `@import "styles/globals.sass"`,
 	},
 	images: { domains: ["images.ctfassets.net"] },
+	env: {
+		BASE_URL: process.env.BASE_URL,
+	},
 };

@@ -45,9 +45,6 @@ export default function Library({ items }) {
 	};
 
 	useEffect(() => {
-		// console.dir(fetchedItems);
-		console.log("LIBRARY GENERATED");
-
 		if (Object.keys(fetchedItems[0]).length) {
 			tempItemsArray = fetchedItems.map((item, i) => {
 				return {
@@ -73,8 +70,6 @@ export default function Library({ items }) {
 		}
 	}, []);
 
-	// console.log(chosenCategoryForFilter);
-
 	useEffect(() => {
 		if (searchValue === "") {
 			console.log("also-fired");
@@ -94,7 +89,7 @@ export default function Library({ items }) {
 
 	useEffect(() => {
 		const chosenCategory = chosenCategoryForFilter.title.toLowerCase();
-		console.table(chosenCategoryForFilter);
+		// console.table(chosenCategoryForFilter);
 		if (chosenCategory === "featured") {
 			setAllItemsInCategory(featuredItemsArray);
 			setItemsForView(featuredItemsArray);
