@@ -13,7 +13,9 @@ import styles from "./Library.module.sass";
 
 export default function Library({ items }) {
 	// export default function Library() {
+	console.log("Items passed to component with getStaticProps:");
 	console.log(items);
+	console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~");
 	// export default function Library() {
 	const chosenCategoryForFilter = useLibraryStore(
 		s => s.chosenCategoryForFilter
@@ -97,6 +99,7 @@ export default function Library({ items }) {
 		// console.table(chosenCategoryForFilter);
 		console.log("Chosen category:");
 		console.log(chosenCategory);
+		console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
 		if (chosenCategory === "featured") {
 			setAllItemsInCategory(featuredItemsArray);
@@ -111,6 +114,9 @@ export default function Library({ items }) {
 					chosenCategoryForFilter.title.toLowerCase()
 				);
 			});
+			console.log("tempItemsArray:");
+			console.table(tempItemsArray);
+			console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			setAllItemsInCategory(tempItemsArray);
 			setItemsForView(tempItemsArray);
 		}
