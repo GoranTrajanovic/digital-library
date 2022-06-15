@@ -75,7 +75,7 @@ export default function Library({ items }) {
 			});
 			setFeaturedItemsArray(tempItemsArray);
 		}
-	}, []);
+	}, [fetchedItems]);
 
 	// useEffect(() => {
 	// 	if (searchValue === "") {
