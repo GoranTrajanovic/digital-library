@@ -101,6 +101,14 @@ export default function Library({ items }) {
 		console.log(chosenCategory);
 		console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
+		console.log("featuredItemsArray arrived as:");
+		console.table(featuredItemsArray);
+		console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
+		console.log("allItems arrived as:");
+		console.table(allItems);
+		console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
 		if (chosenCategory === "featured") {
 			setAllItemsInCategory(featuredItemsArray);
 			setItemsForView(featuredItemsArray);
