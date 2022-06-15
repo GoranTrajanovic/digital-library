@@ -9,8 +9,12 @@ import CategorySelectionButtons from "../../components/CategorySelectionButtons/
 import Title from "../../components/Title/Title";
 import VerticalCardsLayout from "../../modules/VerticalCardsLayout/VerticalCardsLayout";
 import styles from "./Library.module.sass";
+// import { contenfulMimic as items } from "../../stores/useLibraryStore/verticalCardPopulate";
 
 export default function Library({ items }) {
+	// export default function Library() {
+	console.log(items);
+	// export default function Library() {
 	const chosenCategoryForFilter = useLibraryStore(
 		s => s.chosenCategoryForFilter
 	);
@@ -26,13 +30,14 @@ export default function Library({ items }) {
 	const IS_MOBILE = useMediaQuery(599);
 	const imgAttributes = {
 		src: IS_MOBILE
-			? "/library-images/library+robot_mobile.png"
-			: "/library-images/library+robot.png",
+			? "/library-images/library_robot_mobile.png"
+			: "/library-images/library_robot.png",
 		width: IS_MOBILE ? 600 : 966,
 		height: IS_MOBILE ? 256 : 343,
 	};
 
 	const fetchedItems = useItemsStore(s => s.fetchedItems);
+	// const fetchedItems = items;
 	const fetchItemsFromServer = useItemsStore(s => s.fetchItemsFromServer);
 	fetchItemsFromServer(items);
 
