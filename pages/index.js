@@ -8,7 +8,6 @@ import VerticalCard from "../components/Cards/VerticalCard/VerticalCard";
 import VerticalCardsLayout from "../modules/VerticalCardsLayout/VerticalCardsLayout";
 import dummyContent2 from "../dummy_content/horizontalCardPopulate";
 import HorizontalCardsLayout from "../modules/HorizontalCardsLayout/HorizontalCardsLayout";
-import Wishlisted from "../components/SystemConfirmations/Wishlisted/Wishlisted";
 import SearchBar from "../components/SearchBar/SearchBar";
 import NumberedSteps from "../components/NumberedSteps/NumberedSteps";
 import VerticalCardsOnCtaModal from "../components/Cards/VerticalCardsCategoryOptions/VerticalCardsCategoryOptions";

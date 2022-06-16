@@ -17,6 +17,7 @@
     &:nth-child(1)
         margin-top: 50px
 .buttons-wrapper
+    position: relative
     display: inline-flex
     margin-left: 50px
 
@@ -27,11 +28,27 @@
         margin-left: 25px
 
         button:nth-child(2)
-            margin-right: 0px
-            margin-bottom: 25px
+            // margin-right: 0px
+            // margin-bottom: 25px
     
     button:nth-child(1)
         margin-right: 25px
+
+    button
+        transition: opacity 0.2s ease
+
+    button.removeButton
+        position: absolute
+        bottom: -42px
+        padding: 12px 28px
+        opacity: .75
+        text-decoration: underline
+
+    button.hidden
+        opacity: 0
+
+        &:hover
+            cursor: auto
 
 .card-details-wrapper
     display: flex

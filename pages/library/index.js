@@ -13,9 +13,9 @@ import styles from "./Library.module.sass";
 
 export default function Library({ items }) {
 	// export default function Library() {
-	console.log("Items passed to component with getStaticProps:");
-	console.log(items);
-	console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~");
+	// console.log("Items passed to component with getStaticProps:");
+	// console.log(items);
+	// console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~");
 	// export default function Library() {
 	const chosenCategoryForFilter = useLibraryStore(
 		s => s.chosenCategoryForFilter
@@ -77,37 +77,37 @@ export default function Library({ items }) {
 		}
 	}, [fetchedItems]);
 
-	// useEffect(() => {
-	// 	if (searchValue === "") {
-	// 		console.log("also-fired");
-	// 		console.dir(allItemsInCategory);
-	// 		setItemsForView(allItemsInCategory);
-	// 	} else {
-	// 		tempItemsArray = allItemsInCategory.filter(item => {
-	// 			return (
-	// 				item.title.toLowerCase().includes(searchValue) ||
-	// 				item.iconType.toLowerCase().includes(searchValue) ||
-	// 				item.publisher.toLowerCase().includes(searchValue)
-	// 			);
-	// 		});
-	// 		setItemsForView(tempItemsArray);
-	// 	}
-	// }, [searchValue]);
+	useEffect(() => {
+		if (searchValue === "") {
+			console.log("also-fired");
+			console.dir(allItemsInCategory);
+			setItemsForView(allItemsInCategory);
+		} else {
+			tempItemsArray = allItemsInCategory.filter(item => {
+				return (
+					item.title.toLowerCase().includes(searchValue) ||
+					item.iconType.toLowerCase().includes(searchValue) ||
+					item.publisher.toLowerCase().includes(searchValue)
+				);
+			});
+			setItemsForView(tempItemsArray);
+		}
+	}, [searchValue]);
 
 	useEffect(() => {
 		const chosenCategory = chosenCategoryForFilter.title.toLowerCase();
 		// console.table(chosenCategoryForFilter);
-		console.log("Chosen category:");
-		console.log(chosenCategory);
-		console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		// console.log("Chosen category:");
+		// console.log(chosenCategory);
+		// console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
-		console.log("featuredItemsArray arrived as:");
-		console.table(featuredItemsArray);
-		console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		// console.log("featuredItemsArray arrived as:");
+		// console.table(featuredItemsArray);
+		// console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
-		console.log("allItems arrived as:");
-		console.table(allItems);
-		console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		// console.log("allItems arrived as:");
+		// console.table(allItems);
+		// console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
 		if (chosenCategory === "featured") {
 			setAllItemsInCategory(featuredItemsArray);
@@ -122,16 +122,13 @@ export default function Library({ items }) {
 					chosenCategoryForFilter.title.toLowerCase()
 				);
 			});
-			console.log("tempItemsArray:");
-			console.table(tempItemsArray);
-			console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			setAllItemsInCategory(tempItemsArray);
 			setItemsForView(tempItemsArray);
 		}
 	}, [chosenCategoryForFilter, featuredItemsArray]);
 
-	console.log("ItemsToShow:");
-	console.table(itemsForView);
+	// console.log("ItemsToShow:");
+	// console.table(itemsForView);
 
 	return (
 		<div className={styles.wrapper}>

@@ -6,8 +6,10 @@ import VCTitle from "./VCTitle";
 import ButtonOutlinedPrimary from "../../Buttons/ButtonOutlinedPrimary/ButtonOutlinedPrimary";
 import ButtonContainedPrimary from "../../Buttons/ButtonContainedPrimary/ButtonContainedPrimary";
 import ButtonSymbol from "../../Buttons/ButtonSymbol/ButtonSymbol";
-import styles from "./VerticalCard.module.sass";
+import WishlistedConfirmation from "../../SystemConfirmations/WishlistedConfirmation/WishlistedConfirmation";
+import WishlistRemovalConfirmation from "../../SystemConfirmations/WishlistRemovalConfirmation/WishlistRemovalConfirmation";
 import useMediaQuery from "../../../hooks/useMediaQuery";
+import styles from "./VerticalCard.module.sass";
 
 export default function VerticalCard({
 	type,
@@ -22,13 +24,55 @@ export default function VerticalCard({
 	urlLink,
 }) {
 	const [cardIsHovered, setCardIsHovered] = useState(false);
-	const [showWishlisted, setShowWishlisted] = useState(false);
+	const [showWishlisted, setShowWishlisted] = useState(null);
+	const [showRemoveButton, setShowRemoveButton] = useState(false);
 	const BOOL_SCREEN_UNDER_WIDTH = useMediaQuery(906);
-	const wishlistHandler = () => {
-		setShowWishlisted(prevState => !prevState);
+	const addWishlistHandler = () => {
+		setShowWishlisted(prevState => {
+			if (prevState) {
+				return prevState;
+			} else {
+				// alert("Wishlisted!");
+				return !prevState;
+			}
+		});
+
+		setShowRemoveButton(prevState => {
+			if (prevState) {
+				return prevState;
+			} else {
+				// alert("Removed!");
+				return !prevState;
+			}
+		});
+
 		////
 		////
 		// handle functionality (via item ID), problematic is when HorizontalCard gets turned to Vertical, cross check IDs again
+	};
+
+	const wishlistToggleHandler = () => {
+		setShowWishlisted(prevState => !prevState);
+	};
+
+	const removeWishlistHandler = () => {
+		setShowWishlisted(prevState => {
+			if (prevState) {
+				return !prevState;
+			} else {
+				// alert("Wishlisted!");
+				return prevState;
+			}
+		});
+
+		setShowRemoveButton(prevState => {
+			if (prevState) {
+				// alert("Removed!");
+				return !prevState;
+			} else {
+				return prevState;
+			}
+		});
 	};
 
 	const cardDetails = {
@@ -54,6 +98,8 @@ export default function VerticalCard({
 	if (type === "read-more") {
 		return (
 			<>
+				{showWishlisted && <WishlistedConfirmation />}
+				{showWishlisted === false ? <WishlistRemovalConfirmation /> : ""}
 				<div className={`${styles["card-wrapper"]}`}>
 					<VCTitle>{title}</VCTitle>
 					<ImageCustom
@@ -74,11 +120,29 @@ export default function VerticalCard({
 									: "symbol-left-bookmark"
 							}
 							style={{ width: "5px" }}
-							onPress={wishlistHandler}
+							onPress={addWishlistHandler}
 						>
-							{showWishlisted ? "Wishlisted" : "Wishlist"}
+							{showWishlisted ? "Added" : "Wishlist"}
 						</ButtonOutlinedPrimary>
 						<ButtonContainedPrimary>Read more</ButtonContainedPrimary>
+						<button
+							onClick={removeWishlistHandler}
+							className={`${styles.removeButton} ${
+								!showRemoveButton ? styles.hidden : ""
+							}`}
+						>
+							Remove
+						</button>
+						{/* {showRemoveButton ? (
+							<button
+								onClick={wishlistHandler}
+								className={`${styles.removeButton} ${styles.show}`}
+							>
+								Remove
+							</button>
+						) : (
+							<button className={`${styles.removeButton} ${styles.hidden}`}>Remove</button>
+						)} */}
 					</div>
 				</div>
 			</>
@@ -109,7 +173,7 @@ export default function VerticalCard({
 				{type === "start" ? (
 					<ButtonSymbol
 						showWishlisted={showWishlisted}
-						onPress={wishlistHandler}
+						onPress={wishlistToggleHandler}
 					/>
 				) : (
 					""
