@@ -1,0 +1,59 @@
+.wrapper
+    width: 80%
+    margin: auto !important
+    .coverWrapper
+        position: relative
+        &::after
+            content: ""
+            position: absolute
+            left: 0
+            right: 0
+            top: 0
+            bottom: 0
+            background-color: #000
+            @include rounded-corners
+            opacity: .15
+        
+        > div:first-child
+            width: 100% !important
+            
+            span
+                width: 100% !important
+
+                img
+                    object-fit: cover
+                    @include rounded-corners
+
+        // .titleWrapper
+        //     width: 80%
+        //     margin-left: auto
+        //     margin-right: auto
+
+        h1
+            display: inline-block
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate3d(-50%, -50%,0)
+            padding: 8px 12px
+            color: $bg-color
+            background: $color-title
+            font-size: 46px
+            font-weight: 600
+            letter-spacing: 0.65px
+            z-index: 1000
+            margin: 0
+            @include rounded-corners
+
+    .dateWrapper
+        display: inline-flex
+        flex-direction: row
+        align-items: center
+        padding: 12px 0
+        color: $color-text 
+
+        .calendarIcon
+            position: relative !important
+            left: 0 !important
+            margin-right: 5px
+            @include icon-calendar-regular(gray)

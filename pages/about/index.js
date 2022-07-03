@@ -19,7 +19,9 @@ export default function About({ languagesUsed }) {
 
 	return (
 		<div className={styles.wrapper}>
-			<Title>About</Title>
+			<div className={styles.titleWrapper}>
+				<h1>About</h1>
+			</div>
 			<Image
 				src="/about-images/logo_stylized2.png"
 				alt="Stylized logo: dig-lib"

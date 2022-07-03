@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const COMPONENT_LIST = ["CtaModal", "Footer", "Header", "Hero", "Layout"];
+const COMPONENT_LIST = ["BlogCard"];
 
 function writeToFile(componentName, extension, content) {
 	fs.writeFile(componentName + extension, content, () => {});

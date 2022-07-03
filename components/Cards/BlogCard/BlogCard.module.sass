@@ -1,0 +1,131 @@
+
+    
+.cardWrapper
+    @include rounded-corners
+    @include shadow-24dp-ambient
+    display: flex
+    //justify-content: space-between
+    width: $desktop-container-width
+    max-width: $desktop-container-max-width
+    border: 1px solid $color-outline-card
+    background: $bg-color-card
+    margin: 0px auto 35px auto
+    padding: 50px
+
+    @include tablet()
+        width: $tablet-container-width
+
+    
+    > div:first-child
+        min-width: 250px
+
+        img
+            // object-fit: contain
+
+    .detailsWrapper
+        margin-top: -4px
+        margin-left: 35px
+
+    .dateWrapper
+        display: inline-flex
+        flex-direction: row
+        align-items: center
+        padding: 8px 0
+        color: $color-text 
+
+    .calendarIcon
+        position: relative !important
+        left: 0 !important
+        margin-right: 5px
+        @include icon-calendar-regular(gray)
+
+    p
+        @include font-all-devices-body-L
+     
+
+    .buttons-wrapper
+        position: relative
+        display: inline-flex
+        margin-top: 20px
+
+        button:nth-child(1)
+            margin-right: 25px
+
+        button
+            transition: opacity 0.2s ease
+
+        button.removeButton
+            position: absolute
+            bottom: -42px
+            padding: 12px 28px
+            opacity: .75
+            text-decoration: underline
+
+        button.hidden
+            opacity: 0
+
+            &:hover
+                cursor: auto
+
+@media screen and (max-width: 850px)
+    .cardWrapper > div:first-child
+        min-width: 200px
+
+
+@media screen and (max-width: 750px)
+    .cardWrapper
+        width: 60%
+
+        .detailsWrapper
+            margin: 0
+
+            > div:nth-child(2)
+                min-width: 320px !important
+                height: auto
+                margin: 10px 0
+
+        .detailsTopsideWrapper
+            display: flex
+
+            h2
+                display: inline-block
+                margin-right: 25px
+
+
+
+@media screen and (max-width: 615px)
+    .cardWrapper
+        width: 70%
+
+
+
+@media screen and (max-width: 515px)
+    .cardWrapper
+        width: 80%
+
+@media screen and (max-width: 450px)
+    .cardWrapper
+        width: 85%
+        padding: 50px 35px
+
+        .detailsTopsideWrapper
+            flex-direction: column
+
+        .buttons-wrapper
+            flex-direction: column
+            flex-direction: column-reverse
+            margin: 0
+
+            button
+                margin-top: 20px
+
+        .detailsWrapper
+            > div:nth-child(2)
+                min-width: 200px !important
+
+@media screen and (max-width: 380px)
+    .cardWrapper
+
+        .detailsWrapper
+            > div:nth-child(2)
+                min-width: 150px !important
