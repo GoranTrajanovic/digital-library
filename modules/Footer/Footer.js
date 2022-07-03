@@ -9,7 +9,7 @@ export default function Footer() {
 				<Navigation type={"footer"} buttonTextColor={"light"} />
 				<div className={styles.credits}>
 					<span>admin@diglib.com</span>
-					<span>Ⓒ 2021 All rights reserved.</span>
+					<span>Ⓒ 2022 All rights reserved.</span>
 				</div>
 			</div>
 		</div>

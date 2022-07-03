@@ -1,26 +1,88 @@
+$site-margin-regular: 15%
+$site-margin-tablet: 12%
+$site-margin-mobile: 8%
+    
 .wrapper
+    margin: 0 $site-margin-regular
+    padding-top: 25px
+
+    h2
+        padding-bottom: 10px
+
+    > p
+        @include font-all-devices-body-L
+        color: $color-text
+
+    > span
+        width: 40% !important
+        float: right
+        min-width: 180px !important
+        max-width: 260px !important
+        margin: 20px !important
+
+    h3
+        font-size: 20px
+        font-weight: 600
+        margin-top: 50px
+        margin-bottom: 10px
+
     .ribbonOfColorsInPercentage
         width: 100%
-        border: 1px solid black
         height: 20px
+        margin-bottom: 10px
+        display: flex
+        gap: 2.5px
 
         span
             height: 100%
             display: inline-block
 
+        
+        span:first-of-type
+            border-top-left-radius: 2px
+            border-bottom-left-radius: 2px
+
+        span:last-of-type
+            border-top-right-radius: 2px
+            border-bottom-right-radius: 2px
+
+    .placeholderImage
+        width: 40px
+        height: 40px
+
     ul
-        list-style: none
-        display: flex
-        flex-wrap: wrap
-        justify-content: space-between
-        gap: 25px
 
         li 
-            display: flex
-            align-items: center
+            list-style: none
+            // display: flex-inline
             // margin: 0 auto
+            display: inline-flex
+            align-items: center
+            line-height: 40px
+        
+        li:not(:last-of-type) 
+            margin-right: 25px
+
 
         img
             width: 35px
             border-radius: 50%
             margin-right: 5px
+
+@media (min-width: 1000px)
+    .wrapper > span
+        margin-top: 0px !important
+
+@media (max-width: 905px)
+    .wrapper 
+        margin: 0 $site-margin-tablet
+
+        
+
+@media (max-width: 550px)
+    .wrapper
+        > span
+            float: none
+            left: 50%
+            transform: translateX(-50%)
+            

@@ -1,6 +1,8 @@
 import cheerio from "cheerio";
 import axios from "axios";
+import Image from "next/image";
 import styles from "./About.module.sass";
+import Title from "../../components/Title/Title";
 
 export default function About({ languagesUsed }) {
 	const languagesDetails = [
@@ -17,6 +19,24 @@ export default function About({ languagesUsed }) {
 
 	return (
 		<div className={styles.wrapper}>
+			<Title>About</Title>
+			<Image
+				src="/about-images/logo_stylized2.png"
+				alt="Stylized logo: dig-lib"
+				width="1400"
+				height="750"
+			/>
+			<p>
+				This web app was inspired by constant self-e-mailing. Don't you hate it
+				when a new cool article pops-up and yet you have no time to read it?
+				What to do? Bookmark it - never gonna read it.
+			</p>
+			<p>
+				If you want to organize and save stuff from the Internet, for the
+				future, this app is for you.
+			</p>
+			<p>What's more, you may also track your progress. How sweet!</p>
+			<h3>Technologies used</h3>
 			<div className={styles.ribbonOfColorsInPercentage}>
 				{languagesUsed.map(languageObj => {
 					let { color } = languagesDetails.filter(
@@ -25,11 +45,11 @@ export default function About({ languagesUsed }) {
 							languageObj.languageName.toLowerCase()
 					)[0];
 					console.log(color);
-					let tempStyle = {
+					let ribbonStyle = {
 						width: `${languageObj.languagePercent}%`,
 						backgroundColor: color,
 					};
-					return <span style={tempStyle}></span>;
+					return <span style={ribbonStyle}></span>;
 				})}
 			</div>
 			<ul>
@@ -45,7 +65,7 @@ export default function About({ languagesUsed }) {
 							{imgSrc ? (
 								<img src={imgSrc} alt={`${languageObj.languageName} icon`} />
 							) : (
-								""
+								<div className={styles.placeholderImage}></div>
 							)}
 							{languageObj.languageName} {languageObj.languagePercent}%
 						</li>

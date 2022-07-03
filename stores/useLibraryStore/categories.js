@@ -13,6 +13,6 @@ const categories = [
 	{ title: "AI", description: "", descriptionSource: "" },
 	{ title: "philosophy", description: "", descriptionSource: "" },
 	{ title: "video production", description: "", descriptionSource: "" },
-	{ title: "gam dev", description: "", descriptionSource: "" },
+	{ title: "game dev", description: "", descriptionSource: "" },
 ];
 export default categories;
