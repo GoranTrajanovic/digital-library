@@ -81,6 +81,7 @@ export default function VerticalCard({
 		subCategory,
 		publisher,
 		viewCount,
+		imgSrc,
 	};
 
 	const detailsList = [
@@ -102,12 +103,7 @@ export default function VerticalCard({
 				{showWishlisted === false ? <WishlistRemovalConfirmation /> : ""}
 				<div className={`${styles["card-wrapper"]}`}>
 					<VCTitle>{title}</VCTitle>
-					<ImageCustom
-						src={"/card-images/design.png"}
-						alt={title}
-						width={200}
-						height={120}
-					/>
+					<ImageCustom src={imgSrc} alt={title} width={200} height={120} />
 					<span>includes:</span>
 					<VCList cardDetails={detailsList} />
 					<div

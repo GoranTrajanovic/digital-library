@@ -17,6 +17,7 @@ export default function Blog({ blogData }) {
 		blogs.push({
 			title: blogItem.fields.title,
 			datePublished: blogItem.fields.datePublished,
+			slug: blogItem.fields.slug,
 			coverImageURL: blogItem.fields.coverImage.fields.file.url,
 			content: blogItem.fields.blogContent.content,
 		});
@@ -29,7 +30,7 @@ export default function Blog({ blogData }) {
 			</div>
 
 			{blogs.map(blog => {
-				return <BlogCard blogData={blog} key={blog.title} />;
+				return <BlogCard blogData={blog} key={blog.title} slug={blog.slug} />;
 			})}
 		</div>
 	);

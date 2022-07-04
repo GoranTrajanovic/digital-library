@@ -8,7 +8,7 @@ import styles from "./Navigation.module.sass";
 export default function Navigation({ type, buttonTextColor }) {
 	const toggleShow = useModalStore(s => s.toggleShow);
 	const CSSclass = `${styles["wrapper"]} ${styles["wrapper-" + type]}`;
-	const NAVIGATION_LINKS = ["library", "dashboard", "about"];
+	const NAVIGATION_LINKS = ["library", "blog", "dashboard", "about"];
 	return (
 		<>
 			{type === "header" && <MobileMenu navigationLinks={NAVIGATION_LINKS} />}

@@ -9,7 +9,6 @@
         flex-flow: column
         height: 280px
         justify-content: center
-        gap: 25px
         height: 100%
         position: absolute
         top: 0
@@ -17,6 +16,9 @@
 
         @include tablet-mobile()
             left: 100px
+
+        button
+            margin-top: 25px
 
 
 
@@ -40,15 +42,35 @@
         @include mobile()
             font-size: 36px
 
-        span
+        // span
+        //     font-weight: 800
+
+    span 
+        max-width: 60px
+
+        > span
             font-weight: 800
+            font-size: 46px
+            color: $color-on-dark-background
+            letter-spacing: 0.65px
+
 
     button
         // position: relative
         // z-index: 100
+        animation: buttonBounce 1.25s linear 1.75s
 
 // @include tablet()
 
+@keyframes buttonBounce
+    0%
+        transform: translateY(0)
+    30%
+        transform: translateY(-4px)
+    50%
+        transform: translateY(0)
+    100%
+        transform: translateY(0)
 
 
 @media (max-width: 905px)

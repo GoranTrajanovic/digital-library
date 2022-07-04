@@ -24,6 +24,16 @@
                     object-fit: cover
                     @include rounded-corners
 
+        > svg
+            position: absolute
+            left: 50%
+            top: 50%
+            transform: translate(-50%,-50%)
+            background: $color-title
+            width: 200px
+            height: 80px
+
+            text
         // .titleWrapper
         //     width: 80%
         //     margin-left: auto
@@ -35,13 +45,13 @@
             top: 50%
             left: 50%
             transform: translate3d(-50%, -50%,0)
-            padding: 8px 12px
+            padding: 12px 16px
             color: $bg-color
             background: $color-title
             font-size: 46px
             font-weight: 600
             letter-spacing: 0.65px
-            z-index: 1000
+            z-index: 10
             margin: 0
             @include rounded-corners
 
@@ -57,3 +67,40 @@
             left: 0 !important
             margin-right: 5px
             @include icon-calendar-regular(gray)
+
+    .contentWrapper
+        position: relative
+
+        p
+            @include font-all-devices-body-L
+            // color: $color-text
+            color: $color-title
+
+        h2
+            @include font-desktop-headline-M-SemiBold
+            margin-bottom: 10px
+
+        h3
+            @include font-all-devices-headline-S
+            margin-bottom: 10px
+
+        .imageWrapper
+            text-align: center
+
+            .imageDescription
+                position: relative
+                text-align: center
+                font-style: italic
+            
+
+@media screen and (max-width: 650px)
+    .wrapper
+        .coverWrapper h1
+            font-size: 32px
+
+    
+@media screen and (max-width: 420px)
+    .wrapper
+        .coverWrapper h1
+            font-size: 26px
+            padding: 8px 12px

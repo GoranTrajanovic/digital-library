@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import useMediaQuery from "../../../hooks/useMediaQuery";
 import ButtonContainedPrimary from "../../Buttons/ButtonContainedPrimary/ButtonContainedPrimary";
@@ -8,7 +9,7 @@ import WishlistRemovalConfirmation from "../../SystemConfirmations/WishlistRemov
 import Title from "../../Title/Title";
 import styles from "./BlogCard.module.sass";
 
-export default function BlogCard({ blogData }) {
+export default function BlogCard({ blogData, slug }) {
 	const [showWishlisted, setShowWishlisted] = useState(null);
 	const tabletRearange = useMediaQuery(750) ? true : false;
 	const [showRemoveButton, setShowRemoveButton] = useState(false);
@@ -125,7 +126,12 @@ export default function BlogCard({ blogData }) {
 						>
 							{showWishlisted ? "Added" : "Wishlist"}
 						</ButtonOutlinedPrimary>
-						<ButtonContainedPrimary>Read more</ButtonContainedPrimary>
+						<Link href={`/blog/${slug}`}>
+							<a>
+								<ButtonContainedPrimary>Read more</ButtonContainedPrimary>
+							</a>
+						</Link>
+
 						<button
 							onClick={removeWishlistHandler}
 							className={`${styles.removeButton} ${
