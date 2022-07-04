@@ -16,7 +16,9 @@ export default function Navigation({ type, buttonTextColor }) {
 				{NAVIGATION_LINKS.map(link => {
 					return (
 						<ButtonText key={link} color={buttonTextColor}>
-							<Link href={`/${link}`}>{link}</Link>
+							<Link href={`/${link}`}>
+								<a>{link}</a>
+							</Link>
 						</ButtonText>
 					);
 				})}

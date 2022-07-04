@@ -9,7 +9,9 @@ import ButtonSymbol from "../../Buttons/ButtonSymbol/ButtonSymbol";
 import WishlistedConfirmation from "../../SystemConfirmations/WishlistedConfirmation/WishlistedConfirmation";
 import WishlistRemovalConfirmation from "../../SystemConfirmations/WishlistRemovalConfirmation/WishlistRemovalConfirmation";
 import useMediaQuery from "../../../hooks/useMediaQuery";
+import { usePersonalStore } from "../../../stores/usePersonalStore/usePersonalStore";
 import styles from "./VerticalCard.module.sass";
+import { useEffect } from "react";
 
 export default function VerticalCard({
 	type,
@@ -22,12 +24,40 @@ export default function VerticalCard({
 	subCategory,
 	publisher,
 	urlLink,
+	isWishlisted,
 }) {
+	const contentItemsWishlisted = usePersonalStore(
+		s => s.contentItemsWishlisted
+	);
+	const blogItemsWishlisted = usePersonalStore(s => s.blogItemsWishlisted);
+	const itemsInProgress = usePersonalStore(s => s.itemsInProgress);
+	const itemsCompleted = usePersonalStore(s => s.itemsCompleted);
 	const [cardIsHovered, setCardIsHovered] = useState(false);
-	const [showWishlisted, setShowWishlisted] = useState(null);
+	const [showWishlisted, setShowWishlisted] = useState(
+		checkItemInArray(title, [...contentItemsWishlisted, ...blogItemsWishlisted])
+	);
+	const [notifyWishlisted, setNotifyWishlisted] = useState(null);
+	const [notifyUnwishlisted, setNotifyUnwishlisted] = useState(null);
 	const [showRemoveButton, setShowRemoveButton] = useState(false);
 	const BOOL_SCREEN_UNDER_WIDTH = useMediaQuery(906);
-	const addWishlistHandler = () => {
+
+	const addContentItemWishlisted = usePersonalStore(
+		s => s.addContentItemWishlisted
+	);
+	const addBlogItemWishlisted = usePersonalStore(s => s.addBlogItemWishlisted);
+	const addItemInProgress = usePersonalStore(s => s.addItemInProgress);
+	const addItemCompleted = usePersonalStore(s => s.addItemCompleted);
+
+	const removeContentItemWishlisted = usePersonalStore(
+		s => s.removeContentItemWishlisted
+	);
+	const removeBlogItemWishlisted = usePersonalStore(
+		s => s.removeBlogItemWishlisted
+	);
+	const removeItemInProgress = usePersonalStore(s => s.removeItemInProgress);
+	const removeItemCompleted = usePersonalStore(s => s.removeItemCompleted);
+
+	const addBlogWishlistHandler = () => {
 		setShowWishlisted(prevState => {
 			if (prevState) {
 				return prevState;
@@ -45,17 +75,30 @@ export default function VerticalCard({
 				return !prevState;
 			}
 		});
+
+		addBlogItemWishlisted({
+			type,
+			imgSrc,
+			title,
+			iconType,
+			viewCount,
+			date,
+			category,
+			subCategory,
+			publisher,
+			urlLink,
+			isWishlisted: true,
+		});
+
+		setNotifyUnwishlisted(false);
+		setNotifyWishlisted(true);
 
 		////
 		////
 		// handle functionality (via item ID), problematic is when HorizontalCard gets turned to Vertical, cross check IDs again
 	};
 
-	const wishlistToggleHandler = () => {
-		setShowWishlisted(prevState => !prevState);
-	};
-
-	const removeWishlistHandler = () => {
+	const removeBlogWishlistHandler = () => {
 		setShowWishlisted(prevState => {
 			if (prevState) {
 				return !prevState;
@@ -73,6 +116,52 @@ export default function VerticalCard({
 				return prevState;
 			}
 		});
+
+		removeBlogItemWishlisted(title);
+		setNotifyWishlisted(false);
+		setNotifyUnwishlisted(true);
+	};
+
+	const wishlistToggleHandler = () => {
+		if (showWishlisted) {
+			removeContentItemWishlisted(title);
+			setNotifyWishlisted(false);
+			setNotifyUnwishlisted(true);
+		} else {
+			addContentItemWishlisted({
+				type,
+				imgSrc,
+				title,
+				iconType,
+				viewCount,
+				date,
+				category,
+				subCategory,
+				publisher,
+				urlLink,
+				isWishlisted: true,
+			});
+			setNotifyUnwishlisted(false);
+			setNotifyWishlisted(true);
+		}
+
+		setShowWishlisted(prevState => !prevState);
+	};
+
+	const itemCompletedHandler = () => {
+		addItemCompleted({
+			type,
+			imgSrc,
+			title,
+			iconType,
+			viewCount,
+			date,
+			category,
+			subCategory,
+			publisher,
+			urlLink,
+		});
+		removeItemInProgress(title);
 	};
 
 	const cardDetails = {
@@ -91,16 +180,66 @@ export default function VerticalCard({
 	];
 
 	const startButtonHandler = () => {
-		console.log("about to open" + urlLink);
 		window.open(urlLink, "_newtab");
 		type = "resume";
+		addItemInProgress({
+			type,
+			imgSrc,
+			title,
+			iconType,
+			viewCount,
+			date,
+			category,
+			subCategory,
+			publisher,
+			urlLink,
+		});
+	};
+
+	const resumeButtonHandler = () => {
+		window.open(urlLink, "_newtab");
+		type = "resume";
+		// addItemInProgress({
+		// 	type,
+		// 	imgSrc,
+		// 	title,
+		// 	iconType,
+		// 	viewCount,
+		// 	date,
+		// 	category,
+		// 	subCategory,
+		// 	publisher,
+		// 	urlLink,
+		// });
+	};
+
+	const restartButtonHandler = () => {
+		removeItemCompleted(title);
+		window.open(urlLink, "_newtab");
+		type = "resume";
+		addItemInProgress({
+			type,
+			imgSrc,
+			title,
+			iconType,
+			viewCount,
+			date,
+			category,
+			subCategory,
+			publisher,
+			urlLink,
+		});
 	};
 
 	if (type === "read-more") {
 		return (
 			<>
-				{showWishlisted && <WishlistedConfirmation />}
-				{showWishlisted === false ? <WishlistRemovalConfirmation /> : ""}
+				{notifyWishlisted && !notifyUnwishlisted && <WishlistedConfirmation />}
+				{notifyUnwishlisted && !notifyWishlisted && (
+					<WishlistRemovalConfirmation />
+				)}
+				{/* {showWishlisted && <WishlistedConfirmation />}
+				{showWishlisted === false ? <WishlistRemovalConfirmation /> : ""} */}
 				<div className={`${styles["card-wrapper"]}`}>
 					<VCTitle>{title}</VCTitle>
 					<ImageCustom src={imgSrc} alt={title} width={200} height={120} />
@@ -116,15 +255,15 @@ export default function VerticalCard({
 									: "symbol-left-bookmark"
 							}
 							style={{ width: "5px" }}
-							onPress={addWishlistHandler}
+							onPress={addBlogWishlistHandler}
 						>
 							{showWishlisted ? "Added" : "Wishlist"}
 						</ButtonOutlinedPrimary>
 						<ButtonContainedPrimary>Read more</ButtonContainedPrimary>
 						<button
-							onClick={removeWishlistHandler}
+							onClick={removeBlogWishlistHandler}
 							className={`${styles.removeButton} ${
-								!showRemoveButton ? styles.hidden : ""
+								!showRemoveButton && !showWishlisted ? styles.hidden : ""
 							}`}
 						>
 							Remove
@@ -144,8 +283,20 @@ export default function VerticalCard({
 			</>
 		);
 	} else {
-		const ACTION = type;
+		let ACTION = type;
 		let STATUS = "blank";
+		let actionHandler = "startButtonHandler";
+
+		if (checkItemInArray(title, itemsInProgress)) {
+			ACTION = "resume";
+			actionHandler = "resumeButtonHandler";
+		} else if (checkItemInArray(title, itemsCompleted)) {
+			ACTION = "completed";
+			actionHandler = "";
+		}
+
+		console.log(ACTION);
+
 		switch (ACTION) {
 			case "start":
 				STATUS = "ready!";
@@ -153,8 +304,8 @@ export default function VerticalCard({
 			case "resume":
 				STATUS = "in-progress";
 				break;
-			case "review":
-				STATUS = "completed";
+			case "completed":
+				STATUS = "";
 				break;
 		}
 
@@ -162,15 +313,45 @@ export default function VerticalCard({
 			ACTION === "start"
 				? styles["action-wrapper-start"]
 				: styles["action-wrapper"]
+		} ${
+			ACTION === "resume"
+				? styles["action-wrapper-resume"]
+				: styles["action-wrapper"]
+		} ${
+			ACTION === "completed"
+				? styles["action-wrapper-completed"]
+				: styles["action-wrapper"]
 		} ${cardIsHovered && styles["extend"]}`;
+
+		console.log("ACTION for " + title + " is " + ACTION);
 
 		const ActionWrapper = (
 			<div className={ActionWrapperClassName}>
-				{type === "start" ? (
+				{ACTION === "start" ? (
 					<ButtonSymbol
 						showWishlisted={showWishlisted}
 						onPress={wishlistToggleHandler}
 					/>
+				) : (
+					""
+				)}
+				{ACTION === "resume" ? (
+					<ButtonContainedPrimary
+						type={`mark-as-completed`}
+						onPress={itemCompletedHandler}
+					>
+						Mark as Completed
+					</ButtonContainedPrimary>
+				) : (
+					""
+				)}
+				{ACTION === "completed" ? (
+					<ButtonContainedPrimary
+						type={`restart`}
+						onPress={restartButtonHandler}
+					>
+						Restart
+					</ButtonContainedPrimary>
 				) : (
 					""
 				)}
@@ -180,7 +361,14 @@ export default function VerticalCard({
 				/> */}
 				<ButtonContainedPrimary
 					type={`symbol-right-${ACTION}`}
-					onPress={startButtonHandler}
+					// onPress={startButtonHandler}
+					onPress={
+						ACTION === "start"
+							? startButtonHandler
+							: ACTION === "resume"
+							? resumeButtonHandler
+							: ""
+					}
 				>
 					{ACTION}
 				</ButtonContainedPrimary>
@@ -189,6 +377,12 @@ export default function VerticalCard({
 
 		return (
 			<>
+				{notifyWishlisted && !notifyUnwishlisted && <WishlistedConfirmation />}
+				{notifyUnwishlisted && !notifyWishlisted && (
+					<WishlistRemovalConfirmation />
+				)}
+				{/* {showWishlisted && <WishlistedConfirmation />}
+				{showWishlisted === false ? <WishlistRemovalConfirmation /> : ""} */}
 				<div
 					className={styles["card-wrapper"]}
 					onMouseEnter={() => setCardIsHovered(true)}
@@ -226,4 +420,12 @@ export default function VerticalCard({
 			</>
 		);
 	}
+}
+
+function checkItemInArray(title, itemsArray) {
+	// itemsArray.map(item => {
+	// 	console.log(`Checking ${item.title} against ${title}`);
+	// });
+	console.log(itemsArray.findIndex(item => item.title === title) !== -1);
+	return itemsArray.findIndex(item => item.title === title) !== -1;
 }

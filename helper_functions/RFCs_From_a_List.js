@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const COMPONENT_LIST = ["BlogCard"];
+const COMPONENT_LIST = ["Dashboard"];
 
 function writeToFile(componentName, extension, content) {
 	fs.writeFile(componentName + extension, content, () => {});
@@ -23,7 +23,7 @@ COMPONENT_LIST.forEach(componentName => {
 	writeToFile(
 		componentName,
 		".js",
-		`import styles from './${componentName}.module.sass';\n
+		`import styles from "./${componentName}.module.sass";\n
 export default function ${componentName}() {
     return (<></>);
 }`

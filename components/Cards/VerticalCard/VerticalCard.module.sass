@@ -16,6 +16,7 @@
         @include font-all-devices-body-S
         color: $color-text
         text-transform: uppercase
+        margin-top: 10px
 
     // img
     //     @include size(150px, 150px)
@@ -95,6 +96,78 @@
 
         @include tablet-mobile()
             left: 30px
+
+.action-wrapper-resume
+    display: flex
+    flex-flow: row
+    align-items: center
+    z-index: 5
+    position: relative
+    margin-top: 35px
+
+    button
+        transition: all .2s ease-in-out
+
+    button:nth-child(1)
+        // display: none
+        // visibility: hidden
+        position: absolute
+        z-index: 5
+        top: 0
+        // transition: visibility .2s ease-in-out
+
+        @include tablet-mobile
+
+    button:nth-child(2)
+        z-index: 10
+        top: 0
+
+    + span
+        z-index: 3 !important
+
+.action-wrapper-resume.extend
+    color: white
+    // add here
+    button:nth-child(1)
+        // visibility: visible
+        top: 40px
+    button:nth-child(2)
+        top: -10px
+
+.action-wrapper-completed
+    display: flex
+    flex-flow: row
+    align-items: center
+    z-index: 5
+    position: relative
+    margin-top: 20px
+    margin-bottom: 15px
+
+    button
+        transition: all .2s ease-in-out
+
+    button:nth-child(1)
+        // display: none
+        // visibility: hidden
+        position: absolute
+        z-index: 5
+        top: 0
+        // transition: visibility .2s ease-in-out
+
+        @include tablet-mobile
+
+    button:nth-child(2)
+        z-index: 10
+        top: 0
+
+.action-wrapper-completed.extend
+    button:nth-child(1)
+        // visibility: visible
+        top: 40px
+    button:nth-child(2)
+        top: -10px
+
+
 
 .action-wrapper
     z-index: 100
@@ -193,13 +266,13 @@
             -webkit-transform: rotate(45deg)
             -moz-transform: rotate(45deg)
             transform: rotate(45deg)
-            left: 4.5px
+            left: 4.6px
 
         &::after
             -webkit-transform: rotate(-45deg)
             -moz-transform: rotate(-45deg)
             transform: rotate(-45deg)
-            left: 4.5px
+            left: 4.6px
 
 @media (max-width: 905px)
     .card-wrapper
