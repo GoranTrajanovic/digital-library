@@ -1,10 +1,19 @@
 .wrapper
+    // display: flex
     margin-top: 25px
+    width: 80%
+    margin-left: auto
+    margin-right: auto
+    display: flex
+    flex-wrap: wrap
+
+    > div:nth-child(1)
+        flex-basis: 100%
 
     .titleWrapper
         width: 80%
         margin-left: auto
-        margin-right: auto
+        // margin-right: auto
 
         h1
             display: inline-block
@@ -15,3 +24,90 @@
             font-weight: 600
             letter-spacing: 0.65px
             @include rounded-corners
+
+    .dashboardFilter
+        width: 20%
+        display: inline-block
+        position: relative
+        top: 0px
+
+        ul
+            display: flex
+            flex-direction: column
+
+            li
+                display: inline-block
+                margin-bottom: 10px
+
+                &:hover
+                    cursor: pointer
+
+                &.current
+                    font-weight: 600
+
+    .contentWrapper
+        width: 80%
+        display: inline-block
+
+        > div
+            border: 2px solid rgba(187, 187, 187, 0.5)
+            padding: 50px
+            margin-bottom: 50px
+            @include rounded-corners
+
+
+
+        .itemsWrapper
+            display: flex
+            gap: 25px
+            margin-top: 25px
+            flex-wrap: wrap
+
+
+            > div
+                // min-width: 250px
+
+            span
+                font-style: italic
+                display: flex
+                flex-direction: column
+
+                button
+                    width: auto !important
+                    margin-top: 10px
+
+@media screen  and (max-width: 800px)
+    .wrapper
+
+
+        > div:nth-child(2)
+            flex-basis: 100%
+
+        .dashboardFilter ul
+            flex-direction: row
+            flex-wrap: wrap
+            
+            li
+                margin-bottom: 25px
+                margin-right: 10px
+
+        .contentWrapper
+            width: 100%
+
+@media screen and (max-width: 768px)
+    .wrapper .titleWrapper h1
+        font-size: 32px
+
+@media screen  and (max-width: 500px)
+    .wrapper
+
+        .dashboardFilter ul
+            font-size: 14px
+
+@media screen  and (max-width: 500px)
+    .wrapper
+        width: 90%
+
+        .contentWrapper
+            > div
+                padding: 25px

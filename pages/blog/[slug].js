@@ -72,7 +72,19 @@ export default function BlogIndividual({ blogData }) {
 					}
 
 					if (type === "paragraph") {
-						return <p key={key}>{value}</p>;
+						// console.log(item.content);
+						// item.content.map(item => temp.push(item.value));
+						// console.log(temp);
+						// return (
+						// 	<div>
+						// 		{" "}
+						// 		{temp.map(item => {
+						// 			return <p key={key + Math.random()}>{item}</p>;
+						// 		})}
+						// 	</div>
+						// );
+						console.log(value);
+						return <p key={key + Math.random()}>{value}</p>;
 					} else if (type === "heading-1") {
 						return <h2 key={key}>{value}</h2>;
 					} else if (type === "heading-2") {

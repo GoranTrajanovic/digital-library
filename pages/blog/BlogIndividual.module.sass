@@ -3,6 +3,7 @@
     margin: auto !important
     .coverWrapper
         position: relative
+
         &::after
             content: ""
             position: absolute
@@ -70,6 +71,8 @@
 
     .contentWrapper
         position: relative
+        max-width: 850px
+        margin: auto
 
         p
             @include font-all-devices-body-L
@@ -78,19 +81,25 @@
 
         h2
             @include font-desktop-headline-M-SemiBold
+            margin-top: 50px
             margin-bottom: 10px
 
         h3
             @include font-all-devices-headline-S
+            margin-top: 25px
             margin-bottom: 10px
 
         .imageWrapper
             text-align: center
+            margin-top: 10px
+            margin-bottom: 10px
 
             .imageDescription
                 position: relative
                 text-align: center
                 font-style: italic
+
+   
             
 
 @media screen and (max-width: 650px)
@@ -104,3 +113,7 @@
         .coverWrapper h1
             font-size: 26px
             padding: 8px 12px
+
+        .contentWrapper .imageWrapper
+             img
+                object-fit: cover !important
