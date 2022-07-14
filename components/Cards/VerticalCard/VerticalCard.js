@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { usePersonalStore } from "../../../stores/usePersonalStore/usePersonalStore";
 import ImageCustom from "../../ImageCustom/ImageCustom";
 import VerticalCardOverlay from "./VerticalCardOverlay";
 import VCList from "./VCList";
@@ -9,9 +10,9 @@ import ButtonSymbol from "../../Buttons/ButtonSymbol/ButtonSymbol";
 import WishlistedConfirmation from "../../SystemConfirmations/WishlistedConfirmation/WishlistedConfirmation";
 import WishlistRemovalConfirmation from "../../SystemConfirmations/WishlistRemovalConfirmation/WishlistRemovalConfirmation";
 import useMediaQuery from "../../../hooks/useMediaQuery";
-import { usePersonalStore } from "../../../stores/usePersonalStore/usePersonalStore";
 import styles from "./VerticalCard.module.sass";
 import { useEffect } from "react";
+import Link from "next/link";
 
 export default function VerticalCard({
 	type,
@@ -24,6 +25,7 @@ export default function VerticalCard({
 	subCategory,
 	publisher,
 	urlLink,
+	slug,
 	isWishlisted,
 }) {
 	const contentItemsWishlisted = usePersonalStore(
@@ -194,6 +196,7 @@ export default function VerticalCard({
 			publisher,
 			urlLink,
 		});
+		removeContentItemWishlisted(title);
 	};
 
 	const resumeButtonHandler = () => {
@@ -259,7 +262,11 @@ export default function VerticalCard({
 						>
 							{showWishlisted ? "Added" : "Wishlist"}
 						</ButtonOutlinedPrimary>
-						<ButtonContainedPrimary>Read more</ButtonContainedPrimary>
+						<Link href={`/blog/${slug}`}>
+							<a>
+								<ButtonContainedPrimary>Read more</ButtonContainedPrimary>
+							</a>
+						</Link>
 						<button
 							onClick={removeBlogWishlistHandler}
 							className={`${styles.removeButton} ${

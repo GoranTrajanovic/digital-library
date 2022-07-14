@@ -18,6 +18,8 @@
     
     > div:first-child
         min-width: 250px
+        display: flex !important
+        align-items: center
 
         img
             // object-fit: contain
@@ -25,6 +27,10 @@
     .detailsWrapper
         margin-top: -4px
         margin-left: 35px
+
+    .detailsTopsideWrapper
+        > h2 
+            line-height: inherit
 
     .dateWrapper
         display: inline-flex
@@ -68,13 +74,19 @@
                 cursor: auto
 
 @media screen and (max-width: 850px)
-    .cardWrapper > div:first-child
-        min-width: 200px
+    .cardWrapper 
+        padding: 35px
+
+        > div:first-child
+            min-width: 200px
 
 
 @media screen and (max-width: 750px)
     .cardWrapper
         width: 60%
+
+        > div:first-child
+            display: inline-block !important
 
         .detailsWrapper
             margin: 0
@@ -86,10 +98,16 @@
 
         .detailsTopsideWrapper
             display: flex
+            align-items: center
+            justify-content: space-between
 
             h2
                 display: inline-block
                 margin-right: 25px
+
+            .dateWrapper
+                min-width: 125px
+
 
 
 
@@ -106,7 +124,7 @@
 @media screen and (max-width: 450px)
     .cardWrapper
         width: 85%
-        padding: 50px 35px
+        padding: 35px
 
         .detailsTopsideWrapper
             flex-direction: column
@@ -115,6 +133,8 @@
             flex-direction: column
             flex-direction: column-reverse
             margin: 0
+            left: 50%
+            transform: translateX(-50%)
 
             button
                 margin-top: 20px
@@ -122,6 +142,8 @@
         .detailsWrapper
             > div:nth-child(2)
                 min-width: 200px !important
+                display: flex !important
+                justify-content: center
 
 @media screen and (max-width: 380px)
     .cardWrapper

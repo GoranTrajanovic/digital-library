@@ -9,7 +9,7 @@ export default function VerticalCardsArticleOptions() {
 	const updateItemsWishlisted = useModalStore(s => s.updateItemsWishlisted);
 	const itemsWishlisted = useModalStore(s => s.itemsWishlisted);
 	const cardDetailsForRender = useMediaQuery(510)
-		? cardDetailsObj.slice(0, 3)
+		? cardDetailsObj.slice(0, 2)
 		: cardDetailsObj;
 
 	return (

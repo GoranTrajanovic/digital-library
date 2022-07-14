@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePersonalStore } from "../../../stores/usePersonalStore/usePersonalStore";
 import useMediaQuery from "../../../hooks/useMediaQuery";
 import ButtonContainedPrimary from "../../Buttons/ButtonContainedPrimary/ButtonContainedPrimary";
 import ButtonOutlinedPrimary from "../../Buttons/ButtonOutlinedPrimary/ButtonOutlinedPrimary";
@@ -10,7 +11,6 @@ import Title from "../../Title/Title";
 import styles from "./BlogCard.module.sass";
 
 export default function BlogCard({ blogData, slug }) {
-	const [showWishlisted, setShowWishlisted] = useState(null);
 	const tabletRearange = useMediaQuery(750) ? true : false;
 	const [showRemoveButton, setShowRemoveButton] = useState(false);
 	const [screenWidth, setScreenWidth] = useState(0);
@@ -23,6 +23,14 @@ export default function BlogCard({ blogData, slug }) {
 			return dataItem.content[0].value.slice(0, excerptCharacterCount);
 		}
 	});
+	const [showWishlisted, setShowWishlisted] = useState(false);
+	const [notifyWishlisted, setNotifyWishlisted] = useState(null);
+	const [notifyUnwishlisted, setNotifyUnwishlisted] = useState(null);
+	const blogItemsWishlisted = usePersonalStore(s => s.blogItemsWishlisted);
+	const addBlogItemWishlisted = usePersonalStore(s => s.addBlogItemWishlisted);
+	const removeBlogItemWishlisted = usePersonalStore(
+		s => s.removeBlogItemWishlisted
+	);
 
 	useEffect(() => {
 		const handleResize = e => {
@@ -55,6 +63,16 @@ export default function BlogCard({ blogData, slug }) {
 			}
 		});
 
+		addBlogItemWishlisted({
+			title: blogData.title,
+			datePublished: blogData.datePublished,
+			slug: blogData.slug,
+			coverImageURL: blogData.coverImageURL,
+			content: blogData.content,
+		});
+		setNotifyUnwishlisted(false);
+		setNotifyWishlisted(true);
+
 		////
 		////
 		// handle functionality (via item ID), problematic is when HorizontalCard gets turned to Vertical, cross check IDs again
@@ -78,12 +96,19 @@ export default function BlogCard({ blogData, slug }) {
 				return prevState;
 			}
 		});
+		removeBlogItemWishlisted(title);
+		setNotifyWishlisted(false);
+		setNotifyUnwishlisted(true);
 	};
 
 	return (
 		<>
-			{showWishlisted && <WishlistedConfirmation />}
-			{showWishlisted === false ? <WishlistRemovalConfirmation /> : ""}
+			{notifyWishlisted && !notifyUnwishlisted && <WishlistedConfirmation />}
+			{notifyUnwishlisted && !notifyWishlisted && (
+				<WishlistRemovalConfirmation />
+			)}
+			{/* {showWishlisted && <WishlistedConfirmation />}
+			{showWishlisted === false ? <WishlistRemovalConfirmation /> : ""} */}
 			<div className={styles.cardWrapper}>
 				{tabletRearange ? (
 					""

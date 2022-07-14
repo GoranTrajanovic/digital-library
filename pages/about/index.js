@@ -3,6 +3,7 @@ import axios from "axios";
 import Image from "next/image";
 import styles from "./About.module.sass";
 import Title from "../../components/Title/Title";
+import { useModalStore } from "../../stores/useModalStore/useModalStore";
 
 export default function About({ languagesUsed }) {
 	const languagesDetails = [

@@ -6,17 +6,24 @@
     display: inline-flex
     flex-flow: column
     align-items: center
-    justify-content: space-between
+    // justify-content: space-between
     border: 1px solid $color-outline-card
     width: 285px
     height: 425px
+    min-height: 420px !important
     padding: 25px 10px 25px 10px
+    justify-content: normal
+
+    > div:nth-of-type(3)
+        margin-top: 20px            
 
     > span
         @include font-all-devices-body-S
         color: $color-text
         text-transform: uppercase
         margin-top: 10px
+        position: absolute
+        bottom: 20px
 
     // img
     //     @include size(150px, 150px)
@@ -48,6 +55,10 @@
         margin: 10px 0 20px 0
         order: 0
 
+    a:nth-child(2)
+        margin: 10px 0 20px 0
+        order: 0
+
     button.removeButton
         padding: 8px 12px
         order: 2
@@ -65,7 +76,9 @@
     flex-flow: row
     align-items: center
     z-index: 100
-    position: relative
+    // position: relative
+    position: absolute
+    top: 290px
     margin-top: 35px
 
     button:first-child
@@ -102,8 +115,10 @@
     flex-flow: row
     align-items: center
     z-index: 5
-    position: relative
     margin-top: 35px
+    // position: relative
+    position: absolute
+    top: 290px
 
     button
         transition: all .2s ease-in-out
@@ -130,16 +145,18 @@
     // add here
     button:nth-child(1)
         // visibility: visible
-        top: 60px
+        top: 45px
     button:nth-child(2)
-        top: 5px
+        top: -8px
 
 .action-wrapper-completed
     display: flex
     flex-flow: row
     align-items: center
     z-index: 5
-    position: relative
+    // position: relative
+    position: absolute
+    top: 315px
     margin-top: 20px
     margin-bottom: 15px
 
@@ -163,9 +180,9 @@
 .action-wrapper-completed.extend
     button:nth-child(1)
         // visibility: visible
-        top: 60px
+        top: 30px
     button:nth-child(2)
-        top: 5px
+        top: -25px
 
 
 

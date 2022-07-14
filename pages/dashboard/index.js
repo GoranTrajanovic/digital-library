@@ -1,6 +1,7 @@
 import { usePersonalStore } from "../../stores/usePersonalStore/usePersonalStore";
 import Title from "../../components/Title/Title";
 import VerticalCard from "../../components/Cards/VerticalCard/VerticalCard";
+import BlogCard from "../../components/Cards/BlogCard/BlogCard";
 import styles from "./Dashboard.module.sass";
 import { useState } from "react";
 import { filter } from "domutils";
@@ -16,12 +17,14 @@ export default function Dashboard() {
 
 	const [filteredCategory, setFilteredCategory] = useState("all");
 
-	console.log("~~~~~~~~~contentItemsWishlisted in Dashboard.js:");
-	console.log(contentItemsWishlisted);
+	// console.log("~~~~~~~~~contentItemsWishlisted in Dashboard.js:");
+	// console.log(contentItemsWishlisted);
+
+	console.log("~~~~~~~~~blogItemsWishlisted in Dashboard.js:");
+	console.log(blogItemsWishlisted);
 
 	const allPersonalCategories = getAllPersonalCategoryNames([
 		...contentItemsWishlisted,
-		...blogItemsWishlisted,
 		...itemsInProgress,
 		...itemsCompleted,
 	]);
@@ -121,34 +124,17 @@ export default function Dashboard() {
 				</div>
 				<div className={styles.wishlistedBlogs}>
 					<Title>Blog(s) Wishlisted</Title>
-					<div className={styles.itemsWrapper}>
+					<div className={`${styles.blogsWrapper} ${styles.itemsWrapper}`}>
 						{blogItemsWishlisted.map(item => {
-							if (
-								!item ||
-								(item.category !== filteredCategory.toLowerCase().trim() &&
-									filteredCategory.toLowerCase().trim() !== "all")
-							)
-								return;
-							return (
-								<VerticalCard
-									type={item.type}
-									imgSrc={item.imgSrc}
-									title={item.title}
-									iconType={item.iconType}
-									urlLink={item.urlLink}
-									viewCount={item.viewCount}
-									date={item.date}
-									category={item.category}
-									subCategory={item.subCategory}
-									publisher={item.publisher}
-									key={item.title}
-									isWishlisted={true}
-								/>
-							);
-						})
-							? ""
-							: "empty"}
-						{}
+							console.log(item);
+							// if (
+							// 	!item ||
+							// 	(item.category !== filteredCategory.toLowerCase().trim() &&
+							// 		filteredCategory.toLowerCase().trim() !== "all")
+							// )
+							// 	return;
+							return <BlogCard blogData={item} slug={item.slug} />;
+						})}
 					</div>
 				</div>
 				<div className={styles.inProgress}>

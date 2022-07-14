@@ -7,6 +7,7 @@ const cardDetailsObj = [
 			"3 Top-rated blogs",
 			"Various other resources",
 		],
+		featured: true,
 	},
 	{
 		title: "cryptography",
@@ -16,6 +17,7 @@ const cardDetailsObj = [
 			"5 Top-rated blogs",
 			"Various other resources",
 		],
+		featured: true,
 	},
 	{
 		title: "Web development",
@@ -25,6 +27,7 @@ const cardDetailsObj = [
 			"3 Top-rated blogs",
 			"Various other resources",
 		],
+		featured: true,
 	},
 ];
 

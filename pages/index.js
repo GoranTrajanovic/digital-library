@@ -1,32 +1,100 @@
-import { useState } from "react";
-import useMediaQuery from "../hooks/useMediaQuery";
-import HorizontalCard from "../components/Cards/HorizontalCard/HorizontalCard";
+import { createClient } from "contentful";
 import ImagesWithText from "../components/ImagesWithText/ImagesWithText";
-import ButtonCTA from "../components/Buttons/ButtonCTA/ButtonCTA";
-import ButtonOutlinedConfirmation from "../components/Buttons/ButtonOutlinedConfirmation/ButtonOutlinedConfirmation";
-import VerticalCard from "../components/Cards/VerticalCard/VerticalCard";
-import VerticalCardsLayout from "../modules/VerticalCardsLayout/VerticalCardsLayout";
-import dummyContent2 from "../dummy_content/horizontalCardPopulate";
-import HorizontalCardsLayout from "../modules/HorizontalCardsLayout/HorizontalCardsLayout";
-import SearchBar from "../components/SearchBar/SearchBar";
-import NumberedSteps from "../components/NumberedSteps/NumberedSteps";
-import VerticalCardsOnCtaModal from "../components/Cards/VerticalCardsCategoryOptions/VerticalCardsCategoryOptions";
-import CtaModal from "../modules/CtaModal/CtaModal";
-import Header from "../modules/Header/Header";
-import Hero from "../modules/Hero/Hero";
 import HomePageDescription from "../components/HomePageDescription/HomePageDescription";
-import ButtonContainedPrimary from "../components/Buttons/ButtonContainedPrimary/ButtonContainedPrimary";
-import Footer from "../modules/Footer/Footer";
-import { useItemStores } from "../stores/useItemsStore/useItemsStore";
+import Hero from "../modules/Hero/Hero";
+import HorizontalCardsLayout from "../modules/HorizontalCardsLayout/HorizontalCardsLayout";
+import VerticalCardsLayout from "../modules/VerticalCardsLayout/VerticalCardsLayout";
+import CtaModal from "../modules/CtaModal/CtaModal";
+import Title from "../components/Title/Title";
+import styles from "./Home.module.sass";
+import BlogCard from "../components/Cards/BlogCard/BlogCard";
 
-export default function Home() {
+export default function Home({ contentItems, blogs }) {
+	// console.log("~~~~~~~~~~~~ITEMS~~~~~~~~~~~~");
+	// console.table(contentItems);
+	// console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+	// console.log("~~~~~~~~~~~~BLOGS~~~~~~~~~~~~");
+	// console.table(blogs);
+	// console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
+	const blogsArray = blogs
+		.filter(blog => {
+			return blog.fields.featured;
+		})
+		.map(blog => {
+			return {
+				title: blog.fields.title,
+				datePublished: blog.fields.datePublished,
+				slug: blog.fields.slug,
+				coverImageURL: blog.fields.coverImage.fields.file.url,
+				featured: blog.fields.featured,
+				content: blog.fields.blogContent.content,
+			};
+		});
+	const itemsArray = contentItems
+		.filter(item => {
+			return item.fields.featured;
+		})
+		.map(item => {
+			return {
+				type: "start",
+				title: item.fields.title,
+				iconType: item.fields.iconType,
+				urlLink: item.fields.urlLink,
+				imgSrc: "https:" + item.fields.image.fields.file.url,
+				viewCount: item.fields.viewCount,
+				date: item.fields.datePublished.substr(0, 10),
+				category: item.fields.category,
+				subCategory: item.fields.subCategory,
+				publisher: item.fields.publisher,
+				featured: item.fields.featured,
+			};
+		});
+
+	console.log("~~~~~~~~~~~~ITEMS~~~~~~~~~~~~");
+	console.table(itemsArray);
+	console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+	console.log("~~~~~~~~~~~~BLOGS~~~~~~~~~~~~");
+	console.table(blogsArray);
+	console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 	return (
 		<>
 			<Hero />
 			<ImagesWithText />
 			<HomePageDescription />
-			<HorizontalCardsLayout cardDetailsArray={dummyContent2} />
+			<div className={styles.wrapper}>
+				<Title>Featured Blogs</Title>
+				{/* <HorizontalCardsLayout cardDetailsArray={blogsArray} /> */}
+				{blogsArray.map(blog => {
+					return <BlogCard blogData={blog} key={blog.title} slug={blog.slug} />;
+				})}
+			</div>
+
+			<div className={styles.wrapper}>
+				<Title>Featured Content</Title>
+				<VerticalCardsLayout itemsForView={itemsArray} />
+			</div>
+
 			<CtaModal />
 		</>
 	);
+}
+
+export async function getStaticProps() {
+	const client = createClient({
+		space: process.env.space,
+		accessToken: process.env.accessToken,
+	});
+
+	const res_items = await client.getEntries({ content_type: "contentItem" });
+	const res_blogs = await client.getEntries({ content_type: "blog" });
+	// const res_blogs = {};
+	// res_blogs.blogs = [];
+
+	return {
+		props: {
+			contentItems: res_items.items,
+			blogs: res_blogs.items,
+		},
+	};
 }

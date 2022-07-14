@@ -11,10 +11,6 @@ export default function Hero() {
 
 	console.log("modal bool from Hero: " + showModal);
 
-	const handleCTA = () => {
-		toggleShow();
-	};
-
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles["wrapper-text-align"]}>

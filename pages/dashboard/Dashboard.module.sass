@@ -62,10 +62,19 @@
             gap: 25px
             margin-top: 25px
             flex-wrap: wrap
+            position: relative
 
 
             > div
                 // min-width: 250px
+                // justify-content: normal
+
+                // > span
+                //     position: absolute
+                //     bottom: 20px
+
+                // > div:nth-of-type(3)
+                //     margin-top: 20px
 
             span
                 font-style: italic
@@ -75,6 +84,27 @@
                 button
                     width: auto !important
                     margin-top: 10px
+
+
+        .blogsWrapper
+            > div
+                // display: inline-block !important
+                width: 100% !important
+                max-width: 320px
+                min-width: 200px
+                // padding: 35px !important
+
+                > div 
+                    > div:nth-child(2)
+                        min-width: 200px !important
+                    > div:nth-child(4) 
+                        > button
+                            display: none
+                        button
+                            margin: 0
+
+            
+        
 
 @media screen  and (max-width: 800px)
     .wrapper
@@ -111,3 +141,9 @@
         .contentWrapper
             > div
                 padding: 25px
+
+@media screen and (max-width: 380px)
+    .wrapper
+        .contentWrapper .blogsWrapper
+            > div > div
+                min-width: 150px !important
